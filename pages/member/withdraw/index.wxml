@@ -1,0 +1,120 @@
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page" wx:if="{{show}}">
+    <view class="tx_header" style="background: url({{imgUrl+'/plugin/app/static/images/duming/tx_01.png'}})no-repeat center;background-size: 100% 100%;">
+      <view class="tx_header_content">
+        <view class="price">{{info.credit}}</view>
+        <view class="subtitle">余额(元)</view>
+      </view>
+    </view>
+    <view class="dum-cell-title">我要提现<small wx:if="{{info.withdrawmoney>0}}">提现额度最小为: <span class="text-danger">¥{{info.withdrawmoney}}</span></small></view>
+    <view class="dum-cell-group" style="padding-top: 12rpx;">
+      <view class="dum-cell-subtitle">请输入提现金额</view>
+      <view class="dum-cell dum-cell-input">
+        <text class="icon">￥</text><input bindinput="moneyChange" class="dum-input money" type="digit" value="{{money==0?'':money}}"></input><text bindtap="bindAll" class="text-danger text-withdraw" >全部提现</text>
+      </view>
+      <view class="dum-cell-subtitle">提现方式</view>
+      <view class="dum-cell-ul">
+        <radio-group wx:for="{{info.type_array}}">
+            <label bindtap="typeChange" data-name="0" wx:if="{{item.type=='0'}}">
+                <view class="dum-cell-list applyradio">
+                    <view class="dum-cell-icon">
+                        <image alt="" src="/static/images/icon-white/wx.png"></image>
+                    </view>
+                    <view class="dum-cell-info">
+                    {{item.title}}
+                </view>
+                    <view class="dum-cell-remark noremark">
+                        <radio checked="{{checked.id==0?'checked':''}}" class="dum-radio dum-radio-danger" color="#ff5555" data-type="{{item.type}}" value="1"></radio>
+                    </view>
+                </view>
+            </label>
+            <label bindtap="typeChange" data-name="1" wx:if="{{item.type=='2'}}">
+                <view class="dum-cell-list applyradio">
+                    <view class="dum-cell-icon">
+                        <image alt="" src="/static/images/icon-white/zfb.png"></image>
+                    </view>
+                    <view class="dum-cell-info">
+                    {{item.title}}
+                </view>
+                    <view class="dum-cell-remark noremark">
+                        <radio checked="{{checked.id==2?'checked':''}}" class="dum-radio dum-radio-danger" color="#ff5555" data-type="{{item.type}}" value="1"></radio>
+                    </view>
+                </view>
+            </label>
+            <label bindtap="typeChange" data-name="2">
+                <view class="dum-cell-list applyradio" wx:if="{{item.type=='3'}}">
+                    <view class="dum-cell-icon">
+                        <image alt="" src="/static/images/icon-white/yinhangka.png"></image>
+                    </view>
+                    <view class="dum-cell-info">
+                    {{item.title}}
+                </view>
+                    <view class="dum-cell-remark noremark">
+                        <radio checked="{{checked.id==3?'checked':''}}" class="dum-radio dum-radio-danger" color="#ff5555" data-type="{{item.type}}" value="1"></radio>
+                    </view>
+                </view>
+            </label>
+          </radio-group>
+        </view>
+    </view>
+    <view class="dum-cell-group" style="margin-top: 40rpx;" wx:if="{{checked.id>=2}}">
+      <view class="dum-cell-ul" wx:if="{{checked.id==2}}">
+                <view class="dum-cell-list">
+                    <view class="dum-cell-label">姓名</view>
+                    <view class="dum-cell-info">
+                        <input bindinput="inputChange" class="dum-input" data-type="realname" max="25" placeholder="请输入姓名" type="text" value="{{info.last_data.realname}}"></input>
+                    </view>
+                </view>
+                <view class="dum-cell-list">
+                    <view class="dum-cell-label">支付宝帐号</view>
+                    <view class="dum-cell-info">
+                        <input bindinput="inputChange" class="dum-input" data-type="alipay" max="25" placeholder="请输入支付宝账号" value="{{info.last_data.alipay}}"></input>
+                    </view>
+                </view>
+                <view class="dum-cell-list alipay-group">
+                    <view class="dum-cell-label">确认帐号</view>
+                    <view class="dum-cell-info">
+                        <input bindinput="inputChange" class="dum-input" data-type="alipay1" max="25" placeholder="请确认支付宝账号" value="{{info.last_data.alipay}}"></input>
+                    </view>
+                </view>
+      </view>
+       <view class="dum-cell-ul" wx:if="{{checked.id==3}}">
+          <view class="dum-cell-list">
+            <view class="dum-cell-label">姓名</view>
+            <view class="dum-cell-info">
+                <input bindinput="inputChange" class="dum-input" data-type="realname" max="25" placeholder="请输入姓名" type="text" value="{{info.last_data.realname}}"></input>
+            </view>
+          </view>
+          <view class="dum-cell-list">
+              <view class="dum-cell-label">
+                  <span class="re-g">选择银行</span>
+              </view>
+              <picker bindchange="bankChange" class="dum-cell-info" range="{{info.banklist}}" rangeKey="bankname" value="{{bankCheckedIndex}}">{{bankChecked.bankname}}</picker>
+              <view class="dum-cell-remark"></view>
+          </view>
+          <view class="dum-cell-list alipay-group">
+                <view class="dum-cell-label">银行卡号</view>
+                <view class="dum-cell-info">
+                    <input bindinput="inputChange" class="dum-input" data-type="bankcard" max="25" placeholder="请输入银行卡号" value="{{info.last_data.bankcard}}"></input>
+                </view>
+            </view>
+            <view class="dum-cell-list alipay-group">
+                <view class="dum-cell-label">确认卡号</view>
+                <view class="dum-cell-info">
+                    <input bindinput="inputChange" class="dum-input" data-type="bankcard1" max="25" placeholder="请确认银行卡号" value="{{info.last_data.bankcard}}"></input>
+                </view>
+          </view>
+      </view>
+    </view>
+
+    <view class="dum-cell-hint" wx:if="{{info.withdrawcharge>0}}">提现手续费为 {{info.withdrawcharge}}%</view>
+    <view class="dum-cell-hint" wx:if="{{info.withdrawend>0}}">手续费金额在¥{{info.withdrawbegin}}到¥{{info.withdrawend}}间免收</view>
+    <view class="dum-cell-hint charge-group" wx:if="{{chargeShow}}">本次提现将扣除手续费 ¥<text class="text-danger">{{deductionmoney}}</text>
+    </view>
+    <view class="dum-cell-hint charge-group" wx:if="{{chargeShow}}">本次提现实际到账金额 ¥<span class="text-danger">{{realmoney}}</span>
+    </view>
+    <view bindtap="submit" class="btn btn-danger block {{disabled?'disabled':''}}">立即提现</view>
+    <view class="fui-toast {{FoxUIToast.show?'in':'out'}}">
+        <view class="text">{{FoxUIToast.text}}</view>
+    </view>
+</view>

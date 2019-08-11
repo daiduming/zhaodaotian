@@ -1,0 +1,32 @@
+<!--pages/maker/village/index.wxml-->
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page member" wx:if="{{show}}">
+  <view class='head'>
+    <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/m_bg_01.png'}}" style='width: 100%;'></image>
+    <view class="show-cell-group">
+      <view class="show-cell">
+        <view class="show-cell-value">{{total}}</view>
+        <view class="show-cell-subtitle">当前持有村庄数（个）</view>
+      </view>
+    </view>
+  </view>
+  <view class='content' wx:if="{{list.length>0}}">
+    <view class="minute">
+      <view class="history-list">
+        <view class="history-item" wx:for="{{list}}" wx:key="{{index}}">
+            <view class="thumb">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view class="item-object" style="margin-left: 34rpx;">
+                <view class="item-name">{{item.villagename}}</view>
+                <view class="item-time"><text>{{item.province}}</text><text>{{item.city}}</text><text>{{item.area}}</text></view>
+            </view>
+            <view class="date-num">
+                <text class="d-inlineblock time-numb">{{item.days}}</text>
+                <text class="d-inlineblock unit">天</text>
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

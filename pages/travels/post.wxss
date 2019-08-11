@@ -1,0 +1,80 @@
+page{
+  background-color: #fff;
+}
+.fui-cell-group .fui-cell textarea{
+  min-height: 200rpx;
+}
+.btn {
+    margin-top: 10rpx;
+}
+
+.upload,.chose-img {
+    width: 50rpx;
+    height: 50rpx;
+    margin: 0 5rpx;
+}
+
+.fui-cell-group .fui-cell .fui-cell-label {
+    align-self: flex-start;
+    width: 140rpx;
+}
+
+.btn-release{
+  height: 90rpx;
+  background: -webkit-linear-gradient(#7ce4ff, #41a4ff); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#7ce4ff, #41a4ff); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#7ce4ff, #41a4ff); /* Firefox 3.6 - 15 */
+  background: linear-gradient(#7ce4ff, #41a4ff); /* 标准的语法 */
+  border: none;
+  border-radius: 100rpx;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  -moz-box-shadow: 0 0 5rpx #f3f3f3;
+  box-shadow: 0 0 5rpx #f3f3f3;
+  letter-spacing: 20rpx;
+}
+.fui-uploader{
+  background: transparent;
+  border: 1px solid #f5f5f5;
+}
+.thumb-block{
+  margin: 24rpx;
+  border: 1px solid #f5f5f5;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 470rpx;
+}
+.thumb-image{
+  width: 100%;
+  max-height: 470rpx;
+  border-radius: 20rpx;
+}
+.thumb-cell-text{
+  font-size: 28rpx;
+}
+.thumb-cell-group{
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.thumb-item{
+  flex: 1;
+  text-align: center;
+}
+.thumb-item .image{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thumb-item image{
+  width: 72rpx;
+}
+.thumb-item text{
+  display: block;
+  font-size: 24rpx;
+  color: #b3b3b3;
+}

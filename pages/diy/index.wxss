@@ -1,0 +1,69 @@
+.fui-goods-group.block .fui-goods-item .image{
+  border-radius: 20rpx;
+}
+.fui-goods-group.travels.block.one .fui-goods-item {
+	border:1px solid #f3f3f3;
+	box-shadow: 0 0 20rpx #f3f3f3;
+	border-radius: 20rpx;
+	overflow: initial;
+	padding: 20rpx;
+	margin-top: 160rpx;
+}
+.fui-goods-group.travels.block.one .fui-goods-item .image {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding-bottom: 60%;
+  margin-top: -30%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 20rpx;
+}
+.fui-goods-group.travels.block.one .fui-goods-item .detail .name{
+  font-size: 28rpx;
+  margin-top: 15rpx;
+}
+.fui-goods-group.travels.block.one.swiper.showprice.showtitle{
+  height: 534rpx;
+}
+
+.fui-goods-group.activity .fui-goods-item {
+	padding-right: 260rpx;
+	border:1px solid #f3f3f3;
+	box-shadow: 0 0 20rpx #f3f3f3;
+	margin-top: 50rpx;
+	border-radius: 20rpx;
+	overflow: initial;
+}
+.fui-goods-group.activity .fui-goods-item .image {
+    height: 186rpx;
+    width: 220rpx;
+    float: right;
+    background-size: 100% 100%;
+    overflow: hidden;
+    border-radius: 20rpx;
+    position: absolute;
+    right: 20rpx;
+    bottom: 20rpx;
+}
+.fui-goods-group.activity .fui-goods-item .detail {
+	  padding-left: 0;
+    width: 100%;
+}
+.fui-goods-group.activity .fui-goods-item .detail .name {
+  height: 80rpx!important;
+  line-height: 40rpx;
+  font-size: 26rpx;
+  color: #262626;
+  white-space:initial;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-top: 0;
+}
+

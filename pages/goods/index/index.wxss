@@ -1,0 +1,239 @@
+/* pages/goods/new/index.wxss */
+page{
+  background: #fff;
+}
+.page.search{
+  padding-top: 92.5rpx;
+}
+.activity-search{
+  padding: 10rpx 24rpx;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+}
+.fixed{
+  position: fixed;
+  z-index: 999;
+}
+.activity-search-cell{
+  background: #f2f4f5;
+  color: #bdc4cb;
+  font-size: 28rpx;
+  border-radius: 50rpx;
+  padding: 10rpx 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+.activity-search-cell input{
+  flex: 1;
+  color: #333;
+}
+.activity-search-cell .text{
+  color: #ccc;
+}
+.activity-search-cell button{
+  padding: 0;
+  border: none;
+  background: rgba(0,0,0,0);
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin: 0;
+  float: right;
+}
+.activity-search-cell button:after{
+  display: none;
+}
+.activity-banner{
+  padding: 0 24rpx 20rpx;
+  margin-top: 30rpx;
+}
+.activity-banner swiper{
+  -moz-box-shadow: 0 0 15rpx #f3f3f3;
+  box-shadow: 0 0 15rpx #f3f3f3;
+  border-radius: 25rpx;
+  height: 360rpx;
+}
+.activity-banner swiper swiper-item image{
+  width: 100%;
+  height: 360rpx;
+}
+.dots{
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dot{
+  background: #e0e0e0;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  margin: 0 8rpx;
+}
+.dot.active{
+  background: #2cd5eb;
+}
+.activity-group{
+  padding: 20rpx 0;
+}
+.activity-group-title{
+  font-size: 32rpx;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+.activity-list-group{
+    height: auto;
+    overflow: hidden;
+    padding: 0 4rpx;
+}
+.activity-list-group .activity-list-item{
+  position: relative;
+  height: auto;
+  overflow: hidden;
+  width: calc(50% - 40rpx);
+  float: left;
+  border-bottom: 0;
+  background: none;
+  display: block;
+  margin: 20rpx;
+}
+.activity-list-group .activity-list-item .image{
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding-bottom: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-size: 100% 100%; */
+  position: relative;
+  border-radius: 20rpx;
+  border: 1rpx solid #f2f2f2;
+  box-shadow: 0 0 15rpx #f2f2f2;
+}
+.activity-list-group .activity-list-item .detail {
+    padding: 20rpx 0;
+    overflow: hidden;
+}
+.activity-list-group .activity-list-item .name{
+  /* height: 68rpx; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+  /* display: -webkit-box; */
+  /* -webkit-line-clamp: 2; */
+  /* -webkit-box-orient: vertical; */
+  font-size: 26rpx;
+  line-height: 36rpx
+}
+.activity-list-group .activity-list-item .price{
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 28rpx;
+  margin-top: 12rpx;
+}
+.activity-list-group .activity-list-item .price .text {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    color: #f23a46;
+    font-size: 24rpx;
+}
+.activity-list-group .activity-list-item .price .text text{
+  font-size: 32rpx;
+}
+.activity-list-group .activity-list-item .price .buy {
+    display: block;
+    width:66rpx;
+    height:24rpx;
+    text-align: center;
+    line-height: 24rpx;
+    color: #fff;
+    font-size: 18rpx;
+    border-radius: 12rpx;
+    background: -webkit-linear-gradient(#4ae8e9,#00baee); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#4ae8e9,#00baee); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#4ae8e9,#00baee); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#4ae8e9,#00baee); /* 标准的语法 */
+}
+.fui-tab-scroll{
+  margin-bottom: 20rpx;
+}
+.fui-tab-scroll:after {
+  display: none;
+}
+.fui-tab-scroll .item {
+  padding: 0 30rpx;
+  color: #b2b2b2;
+}
+.fui-tab-scroll .item.active{
+  color: #333;
+  font-size: 28rpx;
+}
+.fui-tab-scroll .item.active:before {
+    content: "";
+    height: 4rpx;
+    width: 40rpx;
+    background: #16c8ed;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+.empty {
+    padding:100rpx 150rpx 200rpx;
+    font-size: 28rpx;
+}
+
+.commission-shouye {
+    position: fixed;
+    right: 20rpx;
+    z-index: 999;
+    font-size: 22rpx;
+    color: #fff;
+    width: 84rpx;
+    height: 84rpx;
+    transition: all .7s;
+    background: rgba(0,0,0,0.5);
+    bottom: 280rpx;
+}
+
+.commission-shouye {
+    width: 90rpx;
+    height: 90rpx;
+    background: #ff5555;
+    position: fixed;
+    right: 20rpx;
+    bottom: 80rpx!important;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0;
+    line-height: 90rpx;
+}
+
+.commission-shouye {
+    bottom: 235rpx;
+}
+
+.commission-shouye .icox {
+    font-size: 50rpx;
+    color: #fff;
+}

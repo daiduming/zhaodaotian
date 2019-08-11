@@ -1,0 +1,33 @@
+<view class="fui-goods-group travels {{diyitem.style.liststyle}}" style="background:{{diyitem.style.background}}" wx:if="{{diyitem.params.goodsscroll!=1}}">
+    <view class="fui-goods-item" wx:for="{{diyitem.data}}" wx:for-index="childid" wx:for-item="childitem">
+        <navigator class="{{diyitem.params.showicon=='1'?diyitem.style.iconstyle:''}}" data-text="{{diyitem.style.goodsicon}}" url="{{childitem.bargain>0?'/pages/bargain/detail/detail?id='+childitem.bargain:'/pages/travels/details?id='+childitem.id}}">
+          <image style='width:100%;' mode="widthFix" src="{{diyitem.params.showicon=='2'?diyitem.params.goodsiconsrc:childitem.thumb}}"></image>
+        </navigator>
+        <view class="detail">
+            <navigator class="title-name" style="color:{{diyitem.style.titlecolor}}" url="{{childitem.bargain>0?'/pages/bargain/detail/detail?id='+childitem.bargain:'/pages/travels/details?id='+childitem.id}}" wx:if="{{diyitem.params.showtitle=='1'}}">
+                <text style='font-size: 30rpx;font-weight: bold;'>{{childitem.title}} </text>
+            </navigator>
+            <view class="address" wx:if="{{diyitem.params.showaddress=='1'}}">
+                <view class="text" style="font-size: 22rpx;color:{{diyitem.style.addresscolor}}">{{childitem.address}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="fui-goods-swiper-group" style="position: relative;" wx:if="{{diyitem.params.goodsscroll==1}}">
+    <swiper circular="true" class="swiper fui-goods-group travels {{diyitem.style.liststyle}} {{diyitem.params.showprice=='1'&&(diyitem.params.showproductprice=='1'||diyitem.params.showsales=='1')?'showproduct':''}} {{diyitem.params.showtitle==1?'showtitle':''}} {{diyitem.params.showprice==1?'showprice':''}}" current="{{diyitem.current}}" duration="{{duration}}" interval="{{interval}}" style="background:{{diyitem.style.background}};" wx:if="{{diyitem.params.goodsscroll==1}}">
+        <swiper-item nextMargin="10px" wx:for="{{diyitem.data_temp}}" wx:for-index="childid" wx:for-item="childitem">
+            <view class="fui-goods-item" wx:for="{{childitem}}" wx:for-index="childitemid" wx:for-item="childitems">
+                <navigator class="image {{diyitem.params.showicon=='1'?diyitem.style.iconstyle:''}}" data-text="{{diyitem.style.goodsicon}}" openType="navigate" style="background-image:url({{diyitem.params.showicon=='2'?diyitem.params.goodsiconsrc:childitems.thumb}})" url="{{childitems.bargain>0?'/pages/bargain/detail/detail?id='+childitems.bargain:'/pages/travels/details?id='+childitems.id}}">
+                </navigator>
+                <view class="detail">
+                    <navigator class="name" openType="navigate" style="color:{{diyitem.style.titlecolor}}" url="{{childitems.bargain>0?'/pages/bargain/detail/detail?id='+childitems.bargain:'/pages/travels/details?id='+childitems.id}}" wx:if="{{diyitem.params.showtitle=='1'}}">
+                {{childitems.title}}
+            </navigator>
+                    <view class="address" wx:if="{{diyitem.params.showaddress=='1'}}">
+                        <text class="text" style="font-size: 22rpx;color:{{diyitem.style.addresscolor}}">{{childitems.address}}</text>
+                    </view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>

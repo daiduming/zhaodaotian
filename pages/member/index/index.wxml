@@ -1,0 +1,206 @@
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="model" wx:if="{{modelShow}}">
+    <view class="inner">
+        <view class="title">用户未授权</view>
+        <view class="image">
+            <image src="{{imgUrl+'plugin/app/static/images/wxapp/shouquan.png'}}"></image>
+        </view>
+        <view class="subtitle">您需要先开启【用户信息】，才能使用此功能哦~</view>
+        <view class="model-btns">
+            <view bindtap="cancelclick" class="cancel">取消</view>
+            <view bindtap="confirmclick" class="confirm">去设置</view>
+        </view>
+    </view>
+</view>
+<view class="member page" style="background:{{diypages.page.background}};" wx:if="{{diypages.page.type==3}}">
+    <include src="/pages/diy/index.wxml"></include>
+</view>
+<view class="page member" wx:if="{{show&&diypages.page.type!=3}}">
+
+  <view class='member-head'>
+    <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/member-header.png'}}"></image>
+  </view>
+  <view class='member-content'>
+    <view class='cont-block cont-head'>
+      <view class='thumb-boder' style='background-image:url({{imgUrl+"/plugin/app/static/images/duming/thumb-border.png"}});'>
+        <navigator class='image' hoverClass="none" openType="navigate" url="/pages/member/info/index">
+          <image src="{{member.avatar||'/static/images/noface.png'}}"></image>
+        </navigator>
+      </view>
+      <view class="nickname">{{member.nickname||'未更新用户信息'}}</view>
+      <view class='col-group'>
+        <view class='col-item'>
+          <view class='tit'>{{member.credit2}}</view>
+          <view class='val'>{{member.moneytext}}(元)</view>
+        </view>
+        <view class='col-item'>
+          <view class='tit'>{{member.coupon_bay}}</view>
+          <view class='val'>购买券(张)</view>
+        </view>
+        <view class='col-item'>
+          <view class='tit'>{{member.coupon_earnings}}</view>
+          <view class='val'>收益券(张)</view>
+        </view>
+      </view>
+    </view>
+        <view class="cont-block fui-cell-group fui-cell-click" wx:if="{{member.hastravels}}">
+            <navigator class="fui-cell noborder" url="/pages/travels/index">
+                <view class="fui-cell-icon">
+                  <image mode='widthFix' class='icon' src="{{imgUrl+'/plugin/app/static/images/duming/member_icon_01.png'}}"></image>
+                </view>
+                <view class="fui-cell-text">我的游记<text>共{{member.travel_total}}篇</text></view>
+                <view class="fui-cell-remark">查看全部游记</view>
+            </navigator>
+            <view class="fui-icon-group nomargin travel-notes col-3" wx:if="{{member.travel_array.length>0}}">
+                <navigator class="fui-icon-col" wx:for="{{member.travel_array}}" wx:for-item="travel" wx:key="{{index}}" url="/pages/travels/details?id={{travel.id}}">
+                    <image src='{{travel.thumb}}'></image>
+                    <view class="text">{{travel.title}}</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="fui-cell-group fui-cell-click cont-block ">
+            <navigator class="fui-cell" hoverClass="none" openType="navigate" url="/pages/order/index">
+                <view class="fui-cell-icon">
+                    <image mode='widthFix' class='icon' src="{{imgUrl+'/plugin/app/static/images/duming/member_icon_02.png'}}"></image>
+                </view>
+                <view class="fui-cell-text">我的订单<text>共{{member.statics.order_total}}单</text></view>
+                <view class="fui-cell-remark">查看全部订单</view>
+            </navigator>
+            <view class="fui-icon-group col-5 nomargin">
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="/pages/order/index?status=0">
+                    <view class="badge" wx:if="{{member.statics.order_0>0}}">{{member.statics.order_0}}</view>
+                    <view class='order-icox'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/center_icon_01.png'}}"></image></view>
+                    <view class="text">待付款</view>
+                </navigator>
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="/pages/order/index?status=1">
+                    <view class="badge" wx:if="{{member.statics.order_1>0}}">{{member.statics.order_1}}</view>
+                    <view class='order-icox'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/center_icon_02.png'}}"></image></view>
+                    <view class="text">待发货</view>
+                </navigator>
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="/pages/order/index?status=2">
+                    <view class="badge" wx:if="{{member.statics.order_2>0}}">{{member.statics.order_2}}</view>
+                    <view class='order-icox'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/center_icon_03.png'}}"></image></view>
+                    <view class="text">待收货</view>
+                </navigator>
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="/pages/order/index?status=4">
+                    <view class="badge" wx:if="{{member.statics.order_4>0}}">{{member.statics.order_4}}</view>
+                    <view class='order-icox'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/center_icon_04.png'}}"></image></view>
+                    <view class="text">退换货</view>
+                </navigator>
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="/pages/order/index?status=3">
+                    <view class="badge" wx:if="{{member.statics.order_3>0}}">{{member.statics.order_3}}</view>
+                    <view class='order-icox'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/center_icon_05.png'}}"></image></view>
+                    <view class="text">已完成</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="fui-cell-group fui-cell-click cont-block ">
+            <navigator class="fui-cell" hoverClass="none" openType="navigate" url="/pages/order_zs/index">
+                <view class="fui-cell-icon">
+                    <image mode='widthFix' class='icon' src="{{imgUrl+'/plugin/app/static/images/duming/member_icon_03.png'}}"></image>
+                </view>
+                <view class="fui-cell-text">住宿订单<text>共{{member.statics.order_zs_total}}单</text></view>
+                <view class="fui-cell-remark">查看全部订单</view>
+            </navigator>
+            <view class="fui-icon-group col-4 nomargin">
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="/pages/order_zs/index?status=0">
+                    <view class="badge" wx:if="{{member.statics.order_zs_0>0}}">{{member.statics.order_zs_0}}</view>
+                    <view class='order-icox'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/center_icon_01.png'}}"></image></view>
+                    <view class="text">待付款</view>
+                </navigator>
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="/pages/order_zs/index?status=1">
+                    <view class="badge" wx:if="{{member.statics.order_zs_1>0}}">{{member.statics.order_zs_1}}</view>
+                    <view class='order-icox'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/center_icon_02.png'}}"></image></view>
+                    <view class="text">进行中</view>
+                </navigator>
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="/pages/order_zs/index?status=3">
+                    <view class="badge" wx:if="{{member.statics.order_zs_4>0}}">{{member.statics.order_zs_4}}</view>
+                    <view class='order-icox'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/center_icon_04.png'}}"></image></view>
+                    <view class="text">退款</view>
+                </navigator>
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="/pages/order_zs/index?status=2">
+                    <view class="badge" wx:if="{{member.statics.order_zs_3>0}}">{{member.statics.order_zs_3}}</view>
+                    <view class='order-icox'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/center_icon_05.png'}}"></image></view>
+                    <view class="text">已完成</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="fui-cell-group fui-cell-click cont-block " wx:if="{{member.hasvillage}}">
+            <navigator class="fui-cell" hoverClass="none" openType="navigate" url="/pages/villager/index">
+                <view class="fui-cell-icon">
+                    <image mode='widthFix' class='icon' src="{{imgUrl+'/plugin/app/static/images/duming/member_icon_04.png'}}"></image>
+                </view>
+                <view class="fui-cell-text">村民中心</view>
+                <view class="fui-cell-remark"></view>
+            </navigator>
+            <view class="fui-icon-group col-2 nomargin">
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="">
+                    <text class="total">{{member.room_total}}</text>
+                    <view class="text">房间数量(间)</view>
+                </navigator>
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="">
+                    <text class="total">{{member.villagercommission_total}}</text>
+                    <view class="text">收益总金额(元)</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="fui-cell-group fui-cell-click cont-block " wx:if="{{member.hasmaker}}">
+            <navigator class="fui-cell" hoverClass="none" openType="navigate" url="/pages/maker/index">
+                <view class="fui-cell-icon">
+                    <image mode='widthFix' class='icon' src="{{imgUrl+'/plugin/app/static/images/duming/member_icon_05.png'}}"></image>
+                </view>
+                <view class="fui-cell-text">众创中心</view>
+                <view class="fui-cell-remark"></view>
+            </navigator>
+            <view class="fui-icon-group col-2 nomargin">
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="">
+                    <text class="total">{{member.maker_days}}</text>
+                    <view class="text">持有总天数(天)</view>
+                </navigator>
+                <navigator class="fui-icon-col" hoverClass="none" openType="navigate" url="">
+                    <text class="total">{{member.maker_village}}</text>
+                    <view class="text">持有村庄数(个)</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="fui-cell-group fui-cell-click cont-block">
+          <!-- <navigator class="fui-cell" hoverClass="none" url="{{member.commission_url}}" wx:if="{{member.commission}}">
+            <view class="fui-cell-icon">
+              <image mode='widthFix' class='icon' src="{{imgUrl+'/plugin/app/static/images/duming/member_icon_06.png'}}"></image>
+            </view>
+            <view class="fui-cell-text">{{member.commission_text}}</view>
+            <view class="fui-cell-remark"></view>
+          </navigator> -->
+          <navigator class="fui-cell" hoverClass="none" url="/pages/activity/index" wx:if="{{member.hasvillage}}">
+            <view class="fui-cell-icon">
+              <image mode='widthFix' class='icon' src="{{imgUrl+'/plugin/app/static/images/duming/member_icon_06.png'}}"></image>
+            </view>
+            <view class="fui-cell-text">活动报名</view>
+            <view class="fui-cell-remark"></view>
+          </navigator>
+          <navigator class="fui-cell"  hoverClass="none" openType="navigate" url="/pages/member/withdraw/index" wx:if="{{member.open_withdraw}}">
+            <view class="fui-cell-icon">
+              <image mode='widthFix' class='icon' src="{{imgUrl+'/plugin/app/static/images/duming/member_icon_07.png'}}"></image>
+            </view>
+            <view class="fui-cell-text">{{member.moneytext}}提现</view>
+            <view class="fui-cell-remark"></view>
+          </navigator>
+          <navigator class="fui-cell" hoverClass="none" openType="navigate" url="/pages/member/address/index">
+                <view class="fui-cell-icon">
+                    <image mode='widthFix' class='icon' src="{{imgUrl+'/plugin/app/static/images/duming/member_icon_08.png'}}"></image>
+                </view>
+                <view class="fui-cell-text">收货地址管理</view>
+                <view class="fui-cell-remark"></view>
+            </navigator>
+        </view>
+  </view>
+    <view>
+        <include src="/pages/common/menu.wxml"></include>
+    </view>
+</view>
+<button class="suspended-service" openType="contact" sessionFrom="weapp" showMessageCard="true" style="background-color:{{customercolor}}" wx:if="{{customer==1}}">
+    <text class="icox icox-customerservice"></text>
+</button>
+<view bindtap="phone" class="phone" style="background-color:{{phonecolor}}" wx:if="{{phone==1}}">
+    <text class="icox icox-dianhua"></text>
+</view>

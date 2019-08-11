@@ -1,0 +1,56 @@
+<!--pages/travels/details.wxml-->
+<import src="/utils/wxParse/wxParse.wxml"></import>
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page" wx:if="{{detail && show}}">
+  <view class="banner" wx:if="{{detail.images.length>0}}">
+    <swiper autoplay="{{detail.images.length>1 ? 1 : 0}}" indicator-dots="{{detail.images.length>1 ? 1 : 0}}" interval="5000" duration="1000" circular="true">
+      <block wx:for="{{detail.images}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='content'>
+    <view class='title'>{{detail.title}}</view>
+    <view class='address'>{{detail.address}}</view>
+    <view class='name'><image mode='widthFix' src='{{detail.avatar}}'></image>{{detail.nickname}}</view>
+    <view class='date'><text>{{detail.createtime}}</text></view>
+    <view class='details'>
+      <template is="wxParse" data="{{wxParseData:wxParseData.nodes}}"></template>
+    </view>
+    <view class='comment'>
+      <view class='subtitle'>回复<text>（共有{{total}}条评论）</text></view>
+      <view class='comment-cell-group'>
+        <view class='comment-cell' wx:for="{{commentList}}" wx:key="{{index}}">
+          <view class='avatar'><image mode='widthFix' src='{{item.avatar}}'></image></view>
+          <view class='inner'>
+            <view class='inner-head'>
+              <view class='inner-head-left'>
+                <view>{{item.nickname}}</view>
+                <text>{{item.createtime}}</text>
+              </view>
+              <view class='inner-head-right'>
+                <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/tj_icon_03.png'}}"></image>0
+              </view>
+            </view>
+            <view class='inner-cont'>{{item.content}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='more' bindtap='more' wx:if="{{!loaded && !all}}">展开更多评论<text></text></view>
+      <view class='more' wx:if="{{loaded}}">加载中...</view>
+      <view class='more' wx:if="{{all}}">已加载全部</view>
+    </view>
+  </view>
+  <view class='comment-input'>
+        <view class='image'>
+          <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/tj_icon_04.png'}}"></image>
+        </view>
+        <view class='input'>
+          <input bindinput="onChange" data-type="remark" placeholder='输入您的评论' placeholder-style='color: #c7c7c7; font-size: 26rpx;'></input>
+          <text bindtap='submit'>发送</text>
+        </view>
+  </view>
+  <view class='dianzan' bindtap='dianzan'><image mode="widthFix" src="{{yizan?imgUrl+'/plugin/app/static/images/duming/zan.png':imgUrl+'/plugin/app/static/images/duming/zan_01.png'}}"></image></view>
+</view>

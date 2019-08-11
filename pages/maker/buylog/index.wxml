@@ -1,0 +1,44 @@
+<!--pages/maker/buylog/index.wxml-->
+<loading wx:if="{{!show || loaded}}">加载中...</loading>
+<view class="page member" wx:if="{{show}}">
+  <view class='head'>
+    <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/m_bg_01.png'}}" style='width: 100%;'></image>
+    <view class="show-cell-group">
+      <view class="show-cell">
+        <view class="show-cell-value">{{days}}</view>
+        <view class="show-cell-subtitle">持有总天数(天)</view>
+      </view>
+    </view>
+  </view>
+  <view class='content'>
+    <view class="minute">
+      <view class="coupon">
+        <view class="left-title">购买记录</view>
+        <view class="right-title">
+          <view class="section">
+            <picker mode="date" fields="month" value="{{date}}" start="2019-06-01" bindchange="bindDateChange">
+              <view class="picker currenttime">
+                {{date}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view class="history-list">
+        <view class="history-item" wx:for="{{list}}" wx:key="{{index}}">
+          <view class="item-object">
+            <view class="item-name">{{item.villagename}}</view>
+            <view class="item-time">{{item.createtime}}</view>
+          </view>
+          <view class="date-num">
+            <text class="d-inlineblock time-numb"> +{{item.total}}</text>
+            <text class="d-inlineblock unit">天</text>
+          </view>
+        </view>
+      </view>
+      <view class="empty" wx:if="{{list.length==0&&empty}}">
+        <view class="text-cancel">暂时没有任何数据哦！</view>
+      </view>
+    </view>
+  </view>
+</view>

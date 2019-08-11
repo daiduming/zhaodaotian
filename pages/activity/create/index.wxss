@@ -1,0 +1,119 @@
+page{
+  background: #fff;
+}
+.banner{
+}
+.banner swiper{
+  height: 430rpx;
+}
+.banner swiper swiper-item image{
+  width: 100%;
+  height: 430rpx;
+}
+.content{
+  position: relative;
+  padding: 0 24rpx;
+  background: #fff;
+  margin-top: -50rpx;
+  border-top-left-radius: 25rpx;
+  border-top-right-radius: 25rpx;
+  z-index: 999;
+}
+.content .title{
+  font-size: 36rpx;
+   line-height: 60rpx;
+   padding: 20rpx 0;
+}
+.time-cell-group{
+  background: #f5f5f5;
+  padding: 20rpx 50rpx 20rpx 30rpx;
+  border-radius: 5rpx;
+}
+.time-cell-group .time-cell{
+  font-size: 24rpx;
+  color: #b2b2b2;
+  line-height: 50rpx;
+}
+.time-cell-group .time-cell text{
+  color: #666;
+  float: right;
+}
+.content .price{
+  color: #f23a46;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+.content .price text{
+  font-size: 32rpx;
+}
+.content .details{
+  position: relative;
+  padding-top: 20rpx;
+}
+.content .details:after {
+    content: "";
+    height: 2rpx;
+    width: 100%;
+    background: #efefef;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+.subtitle{
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+.form-cell-group{
+  background: #f5f5f5;
+  padding: 20rpx 30rpx;
+  border-radius: 5rpx;
+}
+.form-cell{
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.form-cell::before{
+  content: "";
+  height: 2rpx;
+  width: 100%;
+  background: #efefef;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.form-cell-lable{
+  font-size: 24rpx;
+  color: #b2b2b2;
+  line-height: 40rpx;
+}
+.form-cell-input input{
+  font-size: 28rpx;
+  padding: 5rpx 0;
+}
+.form-cell-input textarea{
+  font-size: 28rpx;
+  height: 180rpx;
+  padding: 5rpx 0;
+}
+
+.btn-submit{
+  background: -webkit-linear-gradient(#ff9ca2, #f33d49); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#ff9ca2, #f33d49); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#ff9ca2, #f33d49); /* Firefox 3.6 - 15 */
+  background: linear-gradient(#ff9ca2, #f33d49); /* 标准的语法 */ 
+  color: #fff;
+  border-radius: 50rpx;
+  width: 100%;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 40rpx;
+}
+.hint{
+  color: #f75c66;
+  font-size: 24rpx;
+  text-align: center;
+  padding: 20rpx 0;
+}

@@ -1,0 +1,50 @@
+<!--pages/villager/register/index.wxml-->
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page member" wx:if="{{show}}">
+  <view class='head'>
+    <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/mbg_04.png'}}" style='width: 100%;'></image>
+  </view>
+  <view class='content'>
+    <view class='info-block'>
+      <view class='thumb'>
+        <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/l_01.png'}}"></image>
+      </view>
+      <view class="fui-cell-group" wx:if="{{!diyform.template_flag}}">
+        <view class="fui-cell ">
+            <view class="fui-cell-icon">
+              <image mode='widthFix' class='icon' src="{{imgUrl+'/plugin/app/static/images/duming/rz_icon_01.png'}}" style='width: 24rpx;height: 30rpx;'></image>
+            </view>
+            <view class="fui-cell-info">
+                <input bindinput="onChange" class="fui-input" data-type="realname" placeholder="请输入您的姓名" placeholder-class='placeholder-color' value="{{memberInfo.realname}}"></input>
+            </view>
+        </view>
+        <view class="fui-cell" wx:if="{{!openbind}}">
+            <view class="fui-cell-icon">
+              <image mode='widthFix' class='icon' src="{{imgUrl+'/plugin/app/static/images/duming/rz_icon_02.png'}}" style='width: 27rpx;height: 21rpx;'></image>
+            </view>
+            <view class="fui-cell-info">
+                <input bindinput="onChange" class="fui-input" data-type="idnumber" placeholder="请输入身份证号码" placeholder-class='placeholder-color' value="{{memberInfo.idnumber}}"></input>
+            </view>
+        </view>
+        <view class="fui-cell">
+            <view class="fui-cell-icon">
+              <image mode='widthFix' class='icon' src="{{imgUrl+'/plugin/app/static/images/duming/rz_icon_03.png'}}" style='width: 23rpx;height: 30rpx;'></image>
+            </view>
+            <view class="fui-cell-info">
+                <input bindinput="onChange" class="fui-input" data-type="mobile" maxlength="11" placeholder="请输入您的手机号码" placeholder-class='placeholder-color' type="number" value="{{memberInfo.mobile}}"></input>
+            </view>
+        </view>
+        <view class="fui-cell">
+            <view class="fui-cell-icon"></view>
+            <view class="fui-cell-info">
+              <picker bindchange="bindPickerChange" class="fui-input {{index=='' ? 'placeholder-color' : ''}}" range="{{villageList}}" rangeKey="villagename" value="{{index}}">{{index==''? '请选择所属村庄' : villageList[index]['villagename']}}</picker>
+            </view>
+        </view>
+        <view class="fui-cell">
+          <view bindtap="submit" class="btn btn-release block">立即认证</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

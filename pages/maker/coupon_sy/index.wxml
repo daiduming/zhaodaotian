@@ -1,0 +1,34 @@
+<!--pages/maker/coupon_sy/index.wxml-->
+<loading wx:if="{{!show || loaded}}">加载中...</loading>
+<view class="page member" wx:if="{{show}}">
+    <view class='head'>
+      <view class="head-cell">
+        <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/m_bg_02.png'}}" style='width: 100%;'></image>
+        <view class="head-cell-info">{{voucher}}</view>
+      </view>
+    </view>
+    <view class='content'>
+        <view class="minute">
+            <view class="card-desc">*收益每到达50元自动转化为一张收益券,可用来抵用也可以选择回购转化余额。</view>
+            <view class="history-list">收益券回购</view>
+            <view class="changenum">
+                <!-- <view class="banknum">
+                  <view class="bankname">招商银行</view>
+                  <view style="display: inline-block">
+                    <input type="" placeholder="尾号7999" placeholder-style="font-size: 22rpx;" class="bank-input"/>
+                  </view>
+                </view> -->
+                <view style="text-align:center;font-size: 22rpx;color:#b2b2b2;">请输入或选择回购张数</view>
+                <view class="addandreduce">
+                    <view class="symbol border-l" bindtap="reduce">-</view>
+                    <view style="display: inline-block;">
+                        <input bindinput="watchInput" type="number" class="input-num" value="{{number}}" />
+                    </view>
+                    <view class="symbol border-r" bindtap="add">+</view>
+                </view>
+            </view>
+            <button class="btn-submit {{number>0?'':'disabled'}}" bindtap="submit" hover-class="other-button-hover">确认回购</button>
+            <view style="color:#927ff8;text-align:center;margin-top:24rpx;font-size:24rpx;" wx:if="{{money>0}}">您将得到{{money}}元</view>
+        </view>
+    </view>
+</view>

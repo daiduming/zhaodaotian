@@ -1,0 +1,268 @@
+page {
+  background: #fff;
+}
+.btn {
+    margin: 10rpx;
+}
+
+.upload,.chose-img {
+    width: 50rpx;
+    height: 50rpx;
+    margin: 0 5rpx;
+}
+
+.delete {
+    height: 30rpx;
+    width: 30rpx;
+    position: absolute;
+    top: 10rpx;
+}
+
+.apply {
+    padding: 20rpx;
+    font-size: 30rpx;
+    color: #666;
+}
+
+.fui-cell-group .fui-cell .fui-cell-info.color {
+    color: #333;
+}
+
+.send-code {
+    display: none;
+}
+
+.fui-cell-group.toggleSend-group .send-code {
+    display: block;
+    font-size: 26rpx;
+}
+
+.fui-cell-group.toggleSend-group .fui-cell .fui-cell-remark::after {
+    transform: rotate(135deg);
+}
+
+.fui-footer .btn {
+    border-radius: 40rpx;
+    margin-top: 24rpx;
+    width: 164rpx;
+    margin-right: 24rpx;
+}
+.dum-goods-info{
+  padding: 28rpx 24rpx;
+  background: #fefefe;
+  position: relative;
+}
+.dum-goods-info::before{
+  content: " ";
+  position: absolute;
+  left: 20rpx;
+  right: 20rpx;
+  bottom: -20rpx;
+  height: 1px;
+  border-top: 1px solid #ebebeb;
+  color: #D9D9D9;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+}
+.dum-list-group{
+  background: #fff;
+  border: 1rpx solid #f2f2f2;
+  box-shadow: 0 0 10rpx #f2f2f2;
+  border-radius: 15rpx;
+}
+.dum-list{
+  display: flex;
+  padding: 20rpx 30rpx;
+  align-items: center;
+}
+.dum-list-media .goods_img{
+  width: 170rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+}
+.dum-list-inner{
+  position: relative;
+}
+.dum-list-inner .name{
+  font-size: 26rpx;
+  margin-bottom: 10rpx;
+}
+.dum-list-inner .name text{
+  margin-right: 20rpx;
+}
+.dum-list-inner .dec{
+  font-size: 22rpx;
+  color: #b2b2b2;
+}
+.dum-date-group{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}
+.dum-date{
+  box-shadow: 0 0 10rpx #f7f7f7;
+  border: 1rpx solid #f7f7f7;
+  border-radius: 10rpx;
+  padding: 20rpx 30rpx;
+}
+.dum-date-inner{
+  font-size: 28rpx;
+}
+.dum-date-inner text{
+  font-size: 22rpx;
+  color: #b2b2b2;
+  margin-left: 15rpx;
+}
+.dum-date-subtitle{
+  font-size: 22rpx;
+  color: #b2b2b2;
+}
+.dum-date-num{
+  line-height: 46rpx;
+  border: #ccc solid 1rpx;
+  border-radius: 50rpx;
+  padding: 0 20rpx;
+  font-size: 26rpx;
+}
+.goods_img{
+  width: 170rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+}
+.dum-list.between{
+  justify-content: space-between;
+  position: relative;
+  padding: 30rpx 30rpx;
+}
+.dum-list.between::after{
+  content: '';
+  position: absolute;
+  left: 24rpx;
+  right: 24rpx;
+  height: 1rpx;
+  bottom: 0;
+  border-bottom: 1rpx solid #ebebeb;
+}
+.dum-list.between:last-child::after{
+  display: none;
+}
+.dum-list-inner .text-title{
+  font-size: 28rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 5rpx;
+}
+.dum-list-inner .text-dec{
+  font-size: 22rpx;
+  color: #999;
+}
+.dum-list-inner .text-num{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.dum-list-inner .text-num text{
+  font-size: 22rpx;
+  color: #999;
+  float: right;
+}
+.text-right{
+  text-align: right;
+}
+.dum-list .dum-list-lable{
+  color: #999;
+  font-size: 26rpx;
+}
+.dum-list .dum-list-value{
+  color: #666;
+  font-size: 26rpx;
+}
+.fui-footer {
+  text-align: right;
+}
+.btn {
+  height: 56rpx;
+  line-height: 52rpx;
+  border-radius: 40rpx;
+  padding: 0 26rpx;
+  margin-top: 24rpx;
+  font-size: 26rpx;
+}
+.btn.btn-sm {
+  margin-top: 24rpx;
+  margin-right: 24rpx;
+}
+.fui-cell-group .fui-cell .fui-cell-label{
+  width: auto;
+}
+.fui-cell-group .fui-cell .fui-cell-label text{
+  font-size: 24rpx;
+  color: #b2b2b2;
+}
+.fui-cell-textarea{
+  padding: 0 24rpx;
+}
+.fui-cell-textarea textarea{
+  width: 100%;
+  background: #f5f5f5;
+  padding: 24rpx;
+  font-size: 26rpx;
+  box-sizing: border-box;
+  height: 210rpx;
+  border-radius: 10rpx;
+}
+.fui-cell-group .fui-cell .fui-cell-info {
+  text-align: right;
+  font-size: 24rpx;
+  color: #b8b8b8;
+}
+.dum-btn-group{
+  padding: 24rpx;
+  position: relative;
+  margin-top: 30rpx;
+}
+.dum-btn-group::before{
+  content: " ";
+  position: absolute;
+  left: 20rpx;
+  right: 20rpx;
+  top: 0;
+  height: 1px;
+  border-top: 1px solid #ebebeb;
+  color: #D9D9D9;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+}
+.dum-btn-group .dum-btn-text{
+  font-size: 28rpx;
+  text-align: center;
+  padding: 22rpx;
+}
+.dum-btn-group .btn{
+  width: 100%;
+  display: block;
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #fff;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  text-align: center;
+  background: -webkit-linear-gradient(#ffca33, #fe9527); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#ffca33, #fe9527); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#ffca33, #fe9527); /* Firefox 3.6 - 15 */
+  background: linear-gradient(#ffca33, #fe9527); /* 标准的语法 */
+  margin: 0;
+  border: none;
+  margin-bottom: 22rpx;
+}

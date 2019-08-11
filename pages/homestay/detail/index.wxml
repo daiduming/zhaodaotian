@@ -1,0 +1,53 @@
+<!--pages/homestay/detail/index.wxml-->
+<import src="/utils/wxParse/wxParse.wxml"></import>
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page" wx:if="{{detail && show}}">
+  <view class="banner" wx:if="{{detail.images.length>0}}">
+    <swiper autoplay="{{detail.images.length>1 ? 1 : 0}}" indicator-dots="{{detail.images.length>1 ? 1 : 0}}" interval="5000" duration="1000" circular="true">
+      <block wx:for="{{detail.images}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='content'>
+    <view class='title'>{{detail.name}}</view>
+    <view class='address'><text class="icox icox-dingwei1"></text>{{detail.disname}}</view>
+    <view class="navbar-tab">
+      <view class="tab-cell {{tabIndex==1?'active':''}}" bindtap="choiceTab" data-index="1">立即预定</view>
+      <view class="tab-cell {{tabIndex==2?'active':''}}" bindtap="choiceTab" data-index="2">设施与服务</view>
+      <view class="tab-cell {{tabIndex==3?'active':''}}" bindtap="choiceTab" data-index="3">预定须知</view>
+    </view>
+    <view class="time-cell-group" wx:if="{{tabIndex==1}}">
+      <view class="time-cell" bindtap="choiceDate" data-type="0">
+        <view class="riqi" wx:if="{{startDate}}">{{startDate.date}}<text>{{startDate.week}}</text></view>
+        <text>入住日期</text>
+      </view>
+      <view class="time-cell-num">{{num}}晚</view>
+      <view class="time-cell" bindtap="choiceDate" data-type="1">
+        <view class="riqi" wx:if="{{endDate}}">{{endDate.date}}<text>{{endDate.week}}</text></view>
+        <text>离店日期</text>
+      </view>
+    </view>
+    <view class='details'>
+      <template wx:if="{{tabIndex==1}}" is="wxParse" data="{{wxParseData:wxParseData.nodes}}"></template>
+      <view wx:if="{{tabIndex==3}}" class="wxParse-p">
+        <view class="WxEmojiView wxParse-inline">{{detail.notice}}</view>
+      </view>
+    </view>
+    <view class="room-cell-group">
+      <view class="room-cell" wx:for="{{roomList}}" wx:key="{{index}}">
+        <view class="room-cell-inner">
+          <view class="name">{{item.name}}<text>剩余{{item.num}}间</text></view>
+          <text class="des">{{item.description}}</text>
+        </view>
+        <view class="room-cell-price">
+          <text class="price">￥{{item.price}}</text>
+          <button bindtap="create" data-id="{{item.id}}" class="btn btn-click">预订</button>
+        </view>
+      </view>
+    </view>
+    <navigator wx:if="{{isapply}}" class='btn-submit' url='/pages/activity/create/index?id={{detail.id}}'>立即报名</navigator>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+<!--pages/homestay/index.wxml-->
+<loading wx:if="{{!show || loaded}}">加载中...</loading>
+<view class="page {{!id?'search':''}} order" wx:if="{{show}}">
+  <view class='header-search fixed' wx:if="{{!id}}">
+    <form bindsubmit="formSubmit">
+      <view class="header-search-cell">
+        <view class="search-cell-input">
+          <input name="keyword" placeholder="输入关键字搜索" placeholder-class="text"></input>
+          <button form-type="submit"><text class="icox icox-search" style="font-weight: bold;color: #ffb52e;"></text></button>
+        </view>
+        <view class="dinwei">
+          <image mode="widthFix" src="{{imgUrl+'/plugin/app/static/images/duming/dw_01.png'}}"></image>
+        </view>
+      </view>
+    </form>
+    <view class='screen'>
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="screen-picker">
+          <view class='option'>{{region[0]}}</view>
+          <view class='option'>{{region[1]}}</view>
+          <view class='option'>{{region[2]}}</view>
+        </view>
+      </picker>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="villagename">
+        <view class='option'>{{index > 0 ? array[index].villagename : '村'}}</view>
+      </picker>
+    </view>
+  </view>
+    <view class='dum-list-group'>
+      <view class='dum-list-item' wx:for="{{list}}" wx:key="{{index}}">
+        <navigator class='image' url='/pages/homestay/detail/index?id={{item.id}}'>
+          <image mode="widthFix" src="{{item.thumb}}"></image>
+        </navigator>
+        <view class='detail'>
+          <navigator class='name' url='/pages/homestay/detail/index?id={{item.id}}'>{{item.name}}</navigator>
+          <view class='address'>
+            <text class="icox icox-dingwei1"></text>{{item.disname}}
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{nomore}}" style="margin-top: 20rpx;text-align: center;font-size:28rpx;">沒有更多</view>
+    </view>
+    <view class="center" wx:if="{{list.length==0&&empty}}">
+        <view class="empty">
+            <view class="text-cancel">暂时没有任何数据哦！</view>
+        </view>
+    </view>
+</view>
+<navigator class="commission-shouye" openType="switchTab" url="/pages/index/index">
+    <text class="icox icox-shouye"></text>
+</navigator>

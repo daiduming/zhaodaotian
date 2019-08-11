@@ -1,0 +1,35 @@
+<!--pages/maker/village/create.wxml-->
+<!--pages/villagetobuydetail/index.wxml-->
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page member" wx:if="{{show}}">
+    <view class="banner" wx:if="{{detail.images.length>0}}">
+      <swiper autoplay="{{detail.images.length>1 ? 1 : 0}}" indicator-dots="{{detail.images.length>1 ? 1 : 0}}" interval="5000" duration="1000" circular="true">
+        <block wx:for="{{detail.images}}" wx:key="{{index}}">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class='content'>
+        <view class="minute">
+            <view class="history-list">
+                <view class="name">{{detail.villagename}}</view>
+                <view class="dec">
+                  <text>{{detail.province}}</text><text>{{detail.city}}</text><text>{{detail.area}}</text>
+                </view>
+            </view>
+            <view class="changenum">
+                <view class="addandreduce">
+                    <view class="symbol border-l" bindtap="reduce">-</view>
+                    <view style="display: inline-block;">
+                        <input bindinput="watchInput" type="number" class="input-num" disabled value="{{number}}" />
+                    </view>
+                    <view class="symbol border-r" bindtap="add">+</view>
+                </view>
+                <view style="text-align:center;padding-top: 32rpx;font-size: 22rpx;color:#b2b2b2;" wx:if="{{multiple>1}}">*天数只能以{{multiple}}的倍数购买</view>
+            </view>
+            <button class="btn-submit" bindtap="submit" hover-class="other-button-hover">确认购买</button>
+        </view>
+    </view>
+</view>

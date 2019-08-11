@@ -1,0 +1,34 @@
+<!--pages/travels/list.wxml-->
+<loading wx:if="{{!show || loaded}}">加载中...</loading>
+<view class="page" wx:if="{{show}}">
+  
+    <view class='list-group' wx:for="{{list}}" wx:key="{{index}}">
+      <navigator class='list-item' url='/pages/travels/details?id={{item.id}}'>
+        <view class='name'>
+          <image class='avatar' mode='widthFix' src='{{item.avatar}}'></image>
+          <view class='inner'>
+            <view>{{item.nickname}}</view>
+            <text>{{item.createtime}}</text>
+          </view>
+        </view>
+        <view class='title'>{{item.title}}</view>
+        <view class='address'>{{item.address}}</view>
+        <view class='thumb'>
+          <image mode='widthFix' src='{{item.thumb}}'></image>
+        </view>
+        <view class='dec'>
+          <view class='dec-cell'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/tj_icon_01.png'}}" style='width: 32rpx;'></image>{{item.read_total}}</view>
+          <view class='dec-cell'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/tj_icon_02.png'}}" style='width: 23rpx;'></image>{{item.comment}}</view>
+          <view class='dec-cell'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/tj_icon_03.png'}}" style='width: 23rpx;'></image>{{item.zan}}</view>
+        </view>
+      </navigator>
+    </view>
+    <view class="center" wx:if="{{list.length==0&&empty}}">
+        <view class="empty">
+            <view class="text-cancel">暂时没有任何数据哦！</view>
+        </view>
+    </view>
+</view>
+<navigator class="commission-shouye" openType="switchTab" url="/pages/index/index">
+    <text class="icox icox-shouye"></text>
+</navigator>

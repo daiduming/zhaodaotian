@@ -1,0 +1,38 @@
+<!--pages/maker/village/list.wxml-->
+<loading wx:if="{{!show || loaded}}">加载中...</loading>
+<view class="page search order" wx:if="{{show}}">
+  <view class='activity-search fixed'>
+    <form bindsubmit="formSubmit">
+      <view class="activity-search-cell">
+        <input name="keyword" placeholder="输入关键字搜索" placeholder-style="color: #fff;"></input>
+        <button form-type="submit"><text class="icox icox-search" style="color: #fff;"></text></button>
+      </view>
+    </form>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class='screen'>
+        <view class='option'>{{region[0]}}</view>
+        <view class='option'>{{region[1]}}</view>
+        <view class='option'>{{region[2]}}</view>
+      </view>
+    </picker>
+  </view>
+  <view class='content'>
+    <view class="dum-cell-group">
+      <navigator class="dum-cell" wx:for="{{list}}" wx:key="{{index}}" url="/pages/maker/village/create?id={{item.id}}">
+        <view class="dum-cell-icon">
+          <image src="{{item.thumb}}"></image>
+        </view>
+        <view class="dum-cell-inner">
+          <view class="dum-cell-text">
+            <view class="name">{{item.villagename}}</view>
+            <view class="dec"><text>{{item.province}}</text><text>{{item.city}}</text><text>{{item.area}}</text></view>
+          </view>
+          <view class="dum-cell-remark"></view>
+        </view>
+      </navigator>
+      <view class="empty" wx:if="{{list.length==0&&empty}}">
+        <view class="text-cancel">暂时没有任何数据哦！</view>
+      </view>
+    </view>    
+  </view>
+</view>

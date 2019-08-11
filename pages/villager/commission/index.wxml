@@ -1,0 +1,31 @@
+<!--pages/villager/commission/index.wxml-->
+<loading wx:if="{{!show || loaded}}">加载中...</loading>
+<view class="page member" wx:if="{{show}}">
+  <view class='head'>
+    <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/mbg_05.png'}}" style='width: 100%;'></image>
+    <view class="head-cell">
+      <view class="price">{{commission_total}}</view>
+      <view class="subtitle">收益总金额(元)</view>
+    </view>
+  </view>
+  <view class='content'>
+    <view class='info-block dum-list-group'>
+      <view class="section dum-list">
+        <view class="section__title dum-list-info">收益明细</view>
+        <picker mode="date" fields="month" value="{{date}}" bindchange="bindDateChange">
+          <view class="picker dum-list-remark">{{date}}</view>
+        </picker>
+      </view>
+      <view class="dum-list" wx:for="{{list}}" wx:key="{{index}}">
+        <view class="dum-list-info">
+          <view class="name">{{item.goodsname}}</view>
+          <view class="date">{{item.paytime}}</view>
+        </view>
+        <view class="dum-list-remark"><text class="price">+{{item.realmoney}}</text></view>
+      </view>
+      <view class="empty" wx:if="{{list.length==0&&empty}}">
+        <view class="text-cancel">暂时没有任何数据哦！</view>
+      </view>
+    </view>
+  </view>
+</view>

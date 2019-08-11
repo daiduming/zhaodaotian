@@ -1,0 +1,53 @@
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page" wx:if="{{show}}">
+    <view class='thumb-block' catchtap="upload" data-type="thumb">
+      <image class='thumb-image' mode='widthFix' src='{{thumb}}' wx:if="{{thumb}}"></image>
+      <view class='thumb-cell' wx:if="{{!thumb}}">
+        <text class='thumb-cell-text'>为你的游记选择一张精致的封面吧~</text>
+        <view class='thumb-cell-group'>
+          <view class='thumb-item'>
+            <view class='image'>
+              <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/photos.png'}}"></image>
+            </view>
+            <text>拍照上传</text>
+          </view>
+          <view class='thumb-item'>
+            <view class='image'>
+              <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/album.png'}}"></image>
+            </view>
+            <text>相册上传</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="fui-cell-group">
+        <view class="fui-cell">
+            <view class="fui-cell-info">
+                <input bindinput="onChange" class="fui-input" data-type="title" placeholder="为你的游记写个标题" placeholder-style='color: #ccc;' value="{{detail.title}}" ></input>
+            </view>
+        </view>
+        <view class="fui-cell">
+            <view class="fui-cell-info">
+                <input bindinput="onChange" class="fui-input" data-type="address" placeholder="你在哪里" placeholder-style='color: #ccc;' value="{{detail.title}}" ></input>
+            </view>
+        </view>
+        <view class="fui-cell">
+            <view class="fui-cell-info">
+                <textarea bindinput="onChange" maxlength="-1" contenteditable="true" auto-height="true" class="fui-input" data-type="content" placeholder="现在要发布游记内容了~" placeholder-style='color: #ccc;' value="{{detail.content}}"></textarea>
+            </view>
+        </view>
+        <view class="fui-cell">
+            <view class="fui-cell-info">
+              <view class="fui-images">
+                  <image catchtap="upload" class="image" data-index="{{index}}" data-type="image-preview" src="{{item}}" wx:for="{{imgs}}" wx:key="{{index}}">
+                      <text catchtap="upload" class="image-remove" data-index="{{index}}" data-type="image-remove" wx:if="{{detail.status!=1}}">
+                          <text class="icox icox-close"></text>
+                      </text>
+                  </image>
+              </view>
+              <view catchtap="upload" class="fui-uploader" data-type="image"></view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="submit" class="btn btn-release block mtop" wx:if="{{detail.status!=1}}">{{subtext}}</view>
+</view>

@@ -1,0 +1,95 @@
+<!--pages/order_zs/detail/index.wxml-->
+<import src="/utils/wxParse/wxParse.wxml"></import>
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page footer" wx:if="{{detail && show}}">
+  <view class="head-status" wx:if="{{detail.status==1}}">
+    <image mode="widthFix" src="{{imgUrl+'/plugin/app/static/images/duming/zsdd_01.png'}}"></image>等待顾客入住
+  </view>
+  <view class="head-status" wx:if="{{detail.status==2}}">
+    <image mode="widthFix" src="{{imgUrl+'/plugin/app/static/images/duming/zsdd_03.png'}}"></image>顾客成功入住
+  </view>
+  <view class="head-status" wx:if="{{detail.status==3}}">
+    <image mode="widthFix" src="{{imgUrl+'/plugin/app/static/images/duming/zsdd_04.png'}}"></image>订单已完成
+  </view>
+  <view class="content">
+    <view class="subtitle">入住信息</view>
+    <view class="dum-list-group">
+      <view class="dum-list">
+        <view class="dum-list-media">
+          <image mode="widthFix" class="icon" src="{{imgUrl+'/plugin/app/static/images/duming/zsdd_02.png'}}"></image>
+        </view>
+        <view class="dum-list-inner">
+          <view class="name"><text>{{detail.realname}}</text><text>{{detail.mobile}}</text></view>
+          <text class="dec">{{detail.remark?detail.remark:'无特别备注说明'}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="dum-date-group">
+      <view class="dum-date">
+        <view class="dum-date-inner">{{detail.startdate}}<text>{{detail.startweek}}</text></view>
+        <text class="dum-date-subtitle">入住日期</text>
+      </view>
+      <view class="dum-date-num">{{detail.num}}晚</view>
+      <view class="dum-date">
+        <view class="dum-date-inner">{{detail.enddate}}<text>{{detail.endweek}}</text></view>
+        <text class="dum-date-subtitle">离店日期</text>
+      </view>
+    </view>
+    <view class="subtitle">订单信息</view>
+    <view class="dum-list-group">
+      <view class="dum-list">
+        <view class="dum-list-media">
+          <image class="goods_img" src="{{detail.thumb}}"></image>
+        </view>
+        <view class="dum-list-inner" style="height:140rpx;flex:1;">
+          <navigator class="text text-title" url="/pages/homestay/detail/index?id={{detail.hotelid}}">{{detail.hotelname}}</navigator>
+          <view class="text text-dec">{{detail.roomname}}</view>
+          <view class="text text-num">
+            ￥{{detail.roomprice*detail.num}}
+            <text>x{{detail.total}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="dum-list between" style="padding: 20rpx 30rpx;">
+        <view class="dum-list-lable"></view>
+        <view class="dum-list-value" style="font-size:22rpx;">合计：￥{{detail.goodsprice}}</view>
+      </view>
+      <view class="dum-list between">
+        <view class="dum-list-lable">订单编号</view>
+        <view class="dum-list-value">{{detail.ordersn}}</view>
+      </view>
+      <view class="dum-list between">
+        <view class="dum-list-lable">创建日期</view>
+        <view class="dum-list-value">{{detail.createtime}}</view>
+      </view>
+      <view class="dum-list between" wx:if="{{detail.paytime}}">
+        <view class="dum-list-lable">付款时间</view>
+        <view class="dum-list-value">{{detail.paytime}}</view>
+      </view>
+      <view class="dum-list between" wx:if="{{detail.checkintime}}">
+        <view class="dum-list-lable">入住时间</view>
+        <view class="dum-list-value">{{detail.checkintime}}</view>
+      </view>
+      <view class="dum-list between" wx:if="{{detail.finishtime}}">
+        <view class="dum-list-lable">离店时间</view>
+        <view class="dum-list-value">{{detail.finishtime}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="fui-footer aa {{iphonexnavbar}}" style="align-items: center;">
+        <button class="btn btn-default btn-default-o pull-left" openType="contact" sessionFrom="weapp" showMessageCard="true" wx:if="{{customer==1}}">
+            <text class="icox icox-customerservice"></text>客服
+    </button>
+            <view class="btn btn-default btn-default-o btn-sm" wx:if="{{detail.status==0}}">
+                <picker bindchange="cancel" range="{{cancel}}" value="{{cancelindex}}">取消订单</picker>
+            </view>
+            <navigator class="btn btn-danger-o btn-sm" url="/pages/homestay/pay/index?id={{detail.id}}" wx:if="{{detail.status==0}}">支付订单</navigator>
+            <view bindtap="delete" class="btn btn-default btn-default-o btn-sm" data-type="1" wx:if="{{detail.candelete}}">删除订单</view>
+            <navigator class="btn btn-default btn-default-o btn-sm" url="/pages/order_zs/comment/index?id={{detail.id}}" wx:if="{{detail.cancomment}}">评价</navigator>
+            <navigator class="btn btn-default btn-sm" url="/pages/order_zs/refund/index?id={{detail.id}}" wx:if="{{detail.status==1 && detail.refundstate==0}}">申请退款</navigator>
+            <block wx:if="{{detail.refundid>0}}">
+                <navigator class="btn btn-default btn-sm" url="/pages/order_zs/refund/index?id={{detail.id}}" wx:if="{{detail.refundstate==1}}">查看申请</navigator>
+                <view bindtap="refundcancel" class="btn btn-default-o btn-sm btn-cancel" wx:if="{{detail.refundstate==1}}">取消申请</view>
+            </block>
+    </view>
+</view>

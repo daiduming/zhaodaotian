@@ -1,0 +1,4 @@
+.title-name{
+  font-size: 28rpx;
+  font-weight: bold;
+}

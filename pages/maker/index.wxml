@@ -1,0 +1,65 @@
+<!--pages/maker/index.wxml-->
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page member" wx:if="{{show}}">
+  <view class='head'>
+    <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/m_bg_01.png'}}" style='width: 100%;'></image>
+    <view class="show-cell-group">
+      <view class="show-cell">
+        <view class="show-cell-value">{{detail.days}}</view>
+        <view class="show-cell-subtitle">持有总天数(天)</view>
+        <navigator class="show-cell-url" url="/pages/maker/buylog/index">购买记录></navigator>
+      </view>
+      <view class="show-cell">
+        <view class="show-cell-value">{{detail.nums}}</view>
+        <view class="show-cell-subtitle">持有村庄数(个)</view>
+        <navigator class="show-cell-url" url="/pages/maker/village/index">持有村庄></navigator>
+      </view>
+    </view>
+  </view>
+  <view class='content'>
+    <view class="coupon">
+      <view class="coupon-cell">
+        <view class="coupon-cell-left">
+          <view class="name">购买券(张)</view>
+          <view class="num">{{detail.coupon_buy}}</view>
+        </view>
+        <view class="coupon-cell-right">
+          <image mode="widthFix" style="width: 50rpx;" src="{{imgUrl+'/plugin/app/static/images/duming/m_01.png'}}"></image>
+        </view>
+      </view>
+      <navigator class="coupon-cell" url="/pages/maker/coupon_sy/index">
+        <view class="coupon-cell-left">
+          <view class="name">收益券(张)</view>
+          <view class="num">{{detail.coupon_sy}}(可回购)</view>
+        </view>
+        <view class="coupon-cell-right">
+          <image mode="widthFix" style="width: 60rpx;" src="{{imgUrl+'/plugin/app/static/images/duming/m_02.png'}}"></image>
+        </view>
+      </navigator>
+    </view>
+    <view class="minute">
+      <navigator class="minute-title" url="/pages/maker/commission/index">收益详情 <text>累计收益{{detail.award_total}}</text></navigator>
+      <view class="minute-block">
+        <view class="minute-block-cell">
+          <view class="number">{{detail.award_yesterday}}</view>
+          <view class="subtitle">昨日收益(元)</view>
+        </view>
+        <view class="minute-block-cell">
+          <view class="number">{{detail.award_total}}</view>
+          <view class="subtitle">持有收益(元)</view>
+        </view>
+      </view>
+      <view class="minute-list-group">
+        <view class="minute-list" wx:for="{{detail.list}}" wx:key="index">
+          <view class="minute-list-left">{{item.villagename}}</view>
+          <view class="minute-list-inner">{{item.paytime}}</view>
+          <view class="minute-list-right"><text class="price">+{{item.realmoney}}</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <navigator class="travel-add" hoverClass="none" openType="navigate" url="/pages/maker/village/list">
+      <view class='image'></view>
+      <text>立即购买</text>
+    </navigator>
+</view>

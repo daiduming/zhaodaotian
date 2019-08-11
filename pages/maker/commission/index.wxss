@@ -1,0 +1,176 @@
+/* pages/maker/commission/index.wxss */
+page{
+  background: #fff;
+}
+.head{
+  position: relative;
+}
+.show-cell-group{
+  position: absolute;
+  top: calc(50% - 20rpx);
+  left: 0;
+  right: 0;
+  transform: translate(0, -50%);
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.show-cell{
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+.show-cell-value{
+  font-weight: bold;
+  font-size: 88rpx;
+}
+.show-cell-subtitle{
+  font-size: 24rpx;
+  margin-bottom: 10rpx;
+}
+.content{
+  padding: 0 24rpx;
+  position: relative;
+  background: #fefeff;
+}
+.minute{
+  position: absolute;
+  top: -94rpx;
+  left: 24rpx;
+  z-index: 20;
+  width: calc(100% - 48rpx);
+}
+.coupon{
+  padding:0 30rpx;
+  height: 94rpx;
+  display:relative;
+  z-index: 10;
+  justify-content: space-between;
+}
+.selecttime-cell{
+  background: #fff;
+  z-index: 10;
+}
+.detail-item{
+    position: absolute;
+    top: 11rpx;
+    width: 370rpx;
+    height:94rpx;
+    color: #a9a1d0;
+    text-align: center;
+    line-height: 94rpx;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+    background-color: #e1dbff;
+}
+.left-detailitem{
+    left: 0;
+}
+.right-detailitem{
+    right: 0;
+}
+.detail-active{
+    background-color: #fff;
+    color: #927ff8;
+    top: 0rpx;
+    z-index: 3;
+    animation:myfirst 0.1s;
+    animation-fill-mode:forwards;
+}
+
+@keyframes myfirst
+{
+  from {top:11rpx;}
+  to {top:0rpx;}
+}
+.selecttime{
+    width: 100%;
+    text-align: center;
+    height: 91rpx;
+    line-height: 91rpx;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.currenttime{
+  font-size: 15px;
+  color: #a3a3a3;
+}
+.history-list{
+    position: relative;
+    z-index: 10;
+    padding: 0 30rpx;
+    background-color: #fff;
+    box-shadow: 0 5rpx 5rpx #fbfafe;
+}
+.history-item{
+  display:flex;
+  z-index: 12;
+  padding: 32rpx 0;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ebebeb;
+}
+.history-item:last-child{
+  border-bottom: none;
+}
+.item-object{
+  flex: 5;
+  font-size: 14px;
+}
+.date-num{
+  flex: 2;
+  font-size: 20px;
+  text-align: right;
+}
+.time-numb{
+  color: #9380f9;
+  padding: 0 10rpx 0 0;
+}
+.unit{
+  font-size: 14px;
+}
+.item-name{
+  line-height: 60rpx;
+  font-size: 28rpx;
+}
+.item-time{
+  color: #b2b2b2;
+}
+.item-time text{
+  font-size: 24rpx;
+  margin-right: 16rpx;
+}
+.currenttime::after{
+  content: " ";
+  display: inline-block;
+  transform: rotate(135deg);
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 1px 1px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  position: relative;
+  top: -1px;
+  margin-left: .3em;
+}
+/* 右 */
+.fui-cell-icon {
+    width: 184rpx;
+    height: 100%;
+}
+.left-icon{
+    height: 132rpx;
+    border-radius: 10rpx;
+    overflow:hidden;
+}
+.thumb image{
+  width: 156rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+}
+.text-cancel{
+  text-align: center;
+  padding: 24rpx;
+  font-size: 28rpx;
+}

@@ -1,0 +1,205 @@
+/* pages/homestay/index.wxss */
+page{
+  background: #fff;
+}
+.page.search{
+  padding-top: 180rpx;
+}
+.header-search{
+  padding: 15rpx 24rpx;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(#ffca33, #fe9427);
+  box-sizing: border-box;
+}
+.fixed{
+  position: fixed;
+  z-index: 999;
+}
+.header-search-cell{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-search-cell .search-cell-input{  
+  flex: 1;
+  margin-right: 24rpx;
+  position: relative;
+}
+.header-search-cell .search-cell-input input{
+  padding: 10rpx 40rpx;
+  padding-right: 80rpx;
+  background: #f2f4f5;
+  color: #333;
+  font-size: 28rpx;
+  border-radius: 50rpx;
+  height: 80rpx;
+  box-sizing: border-box;
+}
+.header-search-cell .search-cell-input .text{
+  color: #bdc4cb;
+}
+.header-search-cell button{
+  position: absolute;
+  right: 30rpx;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: inline-block;
+  padding: 0;
+  border: none;
+  background: rgba(0,0,0,0);
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin: 0;
+  text-align: center;
+}
+.header-search-cell button:after{
+  display: none;
+}
+.dinwei image{
+  width: 40rpx;
+}
+.header-search .screen{
+  display: flex;
+  justify-content: space-between;
+  height: 60rpx;
+  align-items: center;
+  margin-top: 15rpx;
+}
+.header-search .screen picker{
+  flex: 1;
+}
+.header-search .screen picker:nth-child(2){
+  flex: initial;
+  margin-left: 60rpx;
+}
+.screen-picker{
+  display: flex;
+  justify-content: space-between;
+}
+.header-search .screen .option{
+  position: relative;
+  font-size: 24rpx;
+  color: #fff;
+  align-items: center;
+  padding-right: 32rpx;
+  width: 100rpx;
+}
+.header-search .screen .option:after {
+    content: " ";
+    display: inline-block;
+    transform: rotate(135deg);
+    height: 12rpx;
+    width: 12rpx;
+    border-width: 1px 1px 0 0;
+    border-color: #fff;
+    border-style: solid;
+    position: absolute;
+    top: 6rpx;
+    right: 4rpx;
+}
+.dum-list-group{
+    height: auto;
+    overflow: hidden;
+    padding: 0 24rpx 20rpx;
+}
+.dum-list-group .dum-list-item{
+  position: relative;
+  height: auto;
+  overflow: hidden;
+  border-bottom: 0;
+  background: none;
+  display: block;
+  margin-top: 20rpx;
+  border-radius: 15rpx;
+  border: 1rpx solid #f3f3f3;
+  box-shadow: 0 0 10rpx #f3f3f3;
+  box-sizing: border-box;
+}
+.dum-list-group .dum-list-item .image{
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  position: relative;
+  padding: 24rpx 24rpx 0;
+  box-sizing: border-box;
+}
+.dum-list-group .dum-list-item .image image{
+  width: 100%;
+  border-radius: 15rpx;
+}
+.dum-list-group .dum-list-item .detail {
+    padding: 24rpx;
+    overflow: hidden;
+}
+.dum-list-group .dum-list-item .name{
+  text-overflow: ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+  font-size: 28rpx;
+  line-height: 36rpx;
+  color: #333;
+}
+.dum-list-group .dum-list-item .address{
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 28rpx;
+  margin-top: 12rpx;
+}
+.dum-list-group .dum-list-item .address{
+  font-size: 22rpx;
+  color: #fea42a;
+}
+.dum-list-group .dum-list-item .address .icox{
+  margin-right: 5rpx;
+  font-size: 22rpx;
+  color: #fea42a;
+}
+
+.empty {
+    padding:100rpx 150rpx 200rpx;
+    font-size: 28rpx;
+}
+
+.commission-shouye {
+    position: fixed;
+    right: 20rpx;
+    z-index: 999;
+    font-size: 22rpx;
+    color: #fff;
+    width: 84rpx;
+    height: 84rpx;
+    transition: all .7s;
+    background: rgba(0,0,0,0.5);
+    bottom: 280rpx;
+}
+
+.commission-shouye {
+    width: 90rpx;
+    height: 90rpx;
+    background: #ff5555;
+    position: fixed;
+    right: 20rpx;
+    bottom: 80rpx!important;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0;
+    line-height: 90rpx;
+}
+
+.commission-shouye {
+    bottom: 235rpx;
+}
+
+.commission-shouye .icox {
+    font-size: 50rpx;
+    color: #fff;
+}

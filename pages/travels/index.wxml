@@ -1,0 +1,35 @@
+<view class="{{isIpx?'fui-iphonex-button':''}}"></view>
+<loading wx:if="{{!show || loaded}}">加载中...</loading>
+<view class="page navbar {{paddingb}}" wx:if="{{show}}">
+  <view class='navbar-tab fixed'>
+    <view bindtap="selected" class="item {{status=='1'?'active':''}}" data-type="1">已审核</view>
+    <view bindtap="selected" class="item {{status=='0'?'active':''}}" data-type="0">待审核</view>
+    <text class='right'>共{{total}}篇</text>
+  </view>
+    <block wx:if="{{list.length>0}}">
+        <view class="fui-list-group">
+          <navigator class="fui-list travel-list" hoverClass="none" openType="navigate" url="" wx:for="{{list}}" wx:for-item="item" wx:key='{{index}}' url="/pages/travels/details?id={{item.id}}">
+            <view class='travel-list-thumb'>
+              <image src='{{item.thumb}}'></image>
+            </view>
+            <view class='travel-list-inner'>
+              <view class='title'>{{item.title}}</view>
+              <view class='dec'>
+              <view class='text'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/read.png'}}"></image>{{item.read_total}}</view>
+              <view class='text'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/comment.png'}}"></image>{{item.comment}}</view>
+              <view class='text'><image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/likes.png'}}"></image>{{item.zan}}</view>
+              </view>
+              <view class='date'>{{item.createdate}}</view>
+            </view>      
+          </navigator>
+        </view>
+    </block>
+    <view class="fui-loading empty" wx:if="{{list.length<1&&empty}}">
+        <view class="text">没有数据</view>
+    </view>
+        <navigator class="travel-add" hoverClass="none" openType="navigate" url="/pages/travels/post">
+
+            <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/travel_add.png'}}"></image>
+            <text>发布游记</text>
+        </navigator>
+</view>

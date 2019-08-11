@@ -1,0 +1,36 @@
+<view class="{{isIpx?'fui-iphonex-button':''}}"></view>
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page {{paddingb}}" wx:if="{{show}}">
+    <block wx:if="{{list.length>0}}">
+        <view class="fui-list-group" wx:for="{{list}}" wx:key="{{index}}">
+          <view class='touch' style="{{item.txtStyle}}">
+            <view class="fui-list address-item noclick" bindtouchstart="touchS" touchMtouchM="touchM" bindtouchend="touchE" data-index="{{index}}">
+                <view class="fui-list-inner">
+                    <view class="title">
+                        <view class="realname">{{item.realname}}</view>
+                        <view class="mobile">{{item.mobile}}</view>
+                        <view class='default' wx:if="{{item.isdefault>0}}">默认</view>
+                    </view>
+                    <view class="text">{{item.province}} {{item.city}} {{item.area}} {{item.address}}</view>
+                </view>
+                <view class='fui-cell-remark noremark'>
+                  <navigator class="pull-right btn-edit" hoverClass="none" openType="navigate" url="/pages/member/address/post?id={{item.id}}&type=member">
+                    <image mode='widthFix' class='edit' src="{{imgUrl+'/plugin/app/static/images/duming/edit_01.png'}}"></image>
+                  </navigator>
+                </view>
+            </view>
+            <view  data-id="{{item.id}}" bindtap="deleteItem" class="inner del">删除</view> 
+          </view>
+        </view>
+    </block>
+    <view class="fui-loading empty" wx:if="{{list.length<1&&loaded}}">
+        <view class="text">没有数据</view>
+    </view>
+    <view class="fui-toast {{FoxUIToast.show?'in':'out'}}">
+        <view class="text">{{FoxUIToast.text}}</view>
+    </view>
+    <navigator class="travel-add" hoverClass="none" openType="navigate" url="/pages/member/address/post?type=member">
+      <view class='image'></view>
+      <text>添加地址</text>
+    </navigator>
+</view>

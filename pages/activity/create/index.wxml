@@ -1,0 +1,46 @@
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page" wx:if="{{show}}">
+  <view class="banner" wx:if="{{detail.images.length>0}}">
+    <swiper autoplay="{{detail.images.length>1 ? 1 : 0}}" indicator-dots="{{detail.images.length>1 ? 1 : 0}}" interval="5000" duration="1000" circular="true">
+      <block wx:for="{{detail.images}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='content'>
+    <view class='title'>{{detail.title}}</view>
+    <view class='time-cell-group'>
+      <view class='time-cell'>活动时间<text>{{detail.starttime}}至{{detail.endtime}}</text></view>
+      <view class='time-cell'>报名时间<text>{{detail.startapply}}至{{detail.endapply}}</text></view>
+    </view>
+    <view class='price'>￥<text>{{detail.price}}</text></view>
+    <view class='details'>
+      <view class='subtitle'>报名信息</view>
+      <view class='form-cell-group'>
+        <view class='form-cell'>
+          <view class='form-cell-lable'>姓名</view>
+          <view class='form-cell-input'>
+            <input bindinput="onChange" class="fui-input" data-type="realname" placeholder="请填写入住人姓名" placeholder-style='color: #ccc;' value="" ></input>
+          </view>
+        </view>
+        <view class='form-cell'>
+          <view class='form-cell-lable'>手机号</view>
+          <view class='form-cell-input'>
+            <input bindinput="onChange" class="fui-input" data-type="mobile" placeholder="请填写入住人手机号码" placeholder-style='color: #ccc;' value="" ></input>
+          </view>
+        </view>
+        <view class='form-cell'>
+          <view class='form-cell-lable'>留言</view>
+          <view class='form-cell-input'>
+            <textarea bindinput="onChange" class="fui-input" data-type="remark" placeholder="请填写备注" placeholder-style='color: #ccc;' value="" ></textarea>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='btn-submit' bindtap='submit'>立即报名</view>
+    <view class='hint'>您需支付{{detail.price}}元</view>
+  </view>
+</view>
+

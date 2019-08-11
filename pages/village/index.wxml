@@ -1,0 +1,37 @@
+<!--pages/village/index.wxml-->
+<loading wx:if="{{!show || loaded}}">加载中...</loading>
+<view class="page search order" wx:if="{{show}}">
+  <view class='activity-search fixed'>
+    <form bindsubmit="formSubmit">
+      <view class="activity-search-cell">
+        <input name="keyword" placeholder="输入关键字搜索" placeholder-class="text"></input>
+        <button form-type="submit"><text class="icox icox-search"></text></button>
+      </view>
+    </form>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class='screen'>
+        <view class='option'>{{region[0]}}</view>
+        <view class='option'>{{region[1]}}</view>
+        <view class='option'>{{region[2]}}</view>
+      </view>
+    </picker>
+  </view>
+    <view class='activity-list-group'>
+      <view class='activity-list-item' wx:for="{{list}}" wx:key="{{index}}">
+        <navigator class='image' style='background-image: url({{item.thumb}});' url='/pages/village/detail/index?id={{item.id}}'></navigator>
+        <view class='detail'>
+          <navigator class='name' url='/pages/village/detail/index?id={{item.id}}'>{{item.villagename}}</navigator>
+          <view class='address'><text>{{item.province}}</text><text>{{item.city}}</text><text>{{item.area}}</text></view>
+        </view>
+      </view>
+    </view>
+    <view class="center" wx:if="{{list.length==0&&empty}}">
+        <view class="empty">
+            <view class="text-cancel">暂时没有任何数据哦！</view>
+        </view>
+    </view>
+</view>
+<navigator class="commission-shouye" openType="switchTab" url="/pages/index/index">
+    <text class="icox icox-shouye"></text>
+</navigator>
+

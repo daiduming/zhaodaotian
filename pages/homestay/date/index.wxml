@@ -1,0 +1,30 @@
+<!--pages/order/date/index.wxml-->
+<view class='wrap'>
+  <view class='wrap-head'>
+    <view class='wrap-head-left' bindtap="cancel" >取消</view>
+    <view class="wrap-head-num" wx:if="{{num}}">已选{{num}}晚</view>
+    <view class='wrap-head-right' bindtap="submit" >确认</view>
+  </view>
+	<view>
+		<view class='date-show'>
+			<view class='lt-arrow' bindtap='lastMonth'>》
+			</view>
+			{{year}}年{{month}}月
+			<view class='rt-arrow' bindtap='nextMonth'>
+        <view>》</view>
+			</view>
+		</view>
+	</view>
+	<view class='header'>
+		<view wx:for='{{date}}' wx:key=""  class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}<view></view></view>
+	</view>
+	<view class='date-box'>
+  <block wx:for='{{dateArr}}' wx:key="">
+		<view class='{{isToday == item.isToday ? "nowDay" : (clickDate == item.isToday ? "checkDay" : ((type==1 && startDate && startDate == item.isToday) || (type==0 && endDate && endDate == item.isToday) ? "yiDay" : ""))}}' style='{{isToday - item.isToday > 0 || item.check || (type==1 && startDate && startDate > item.isToday) || (type==0 && endDate && endDate < item.isToday) ? "color: #ccc;" : ""}}'>			
+			<view class='date-head' bindtap='{{isToday - item.isToday < 0 && !item.check && ((type==1 && (!startDate || startDate < item.isToday)) || (type==0 && (!endDate || endDate > item.isToday))) ? "cilck" : ""}}' data-date='{{item.isToday}}' data-week='{{item.week}}'>
+				<view>{{item.dateNum}}</view>
+			</view>
+		</view>
+  </block>
+	</view>
+</view>

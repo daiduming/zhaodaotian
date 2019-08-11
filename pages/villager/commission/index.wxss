@@ -1,0 +1,112 @@
+/* pages/villager/commission/index.wxss */
+page{
+  background: #fff;
+}
+.head{
+  position: relative;
+}
+.head-cell{
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 50rpx);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.head-cell .price{
+  font-size: 88rpx;
+  color: #fff;
+}
+.head-cell .subtitle{
+  font-size: 24rpx;
+  color: #fff;
+}
+.content{
+  padding: 0 24rpx;
+  position: relative;
+}
+.info-block{
+  background: #fff;
+  border-radius: 20rpx;
+  position: absolute;
+  top: -100rpx;
+  left: 24rpx;
+  right: 24rpx;
+  text-align: center;
+  padding-bottom: 40rpx;
+  min-height: 200rpx;
+}
+.dum-list-group .dum-list{
+  position: relative;
+  padding: 24rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  transition-duration: 300ms;
+  transition-property: background-color;
+}
+.dum-list-group .dum-list:after {
+  content: " ";
+    position: absolute;
+    left: 20rpx;
+    right: 20rpx;
+    bottom: 0;
+    height: 1px;
+    border-bottom: 1px solid #ebebeb;
+    color: #D9D9D9;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+}
+.dum-list-group .dum-list .dum-list-info {
+    flex: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 28rpx;
+    color: #000;
+    text-align: left;
+}
+.dum-list-group .dum-list .dum-list-remark {
+    color: #888;
+    text-align: right;
+    font-size: 30rpx;
+}
+.picker{
+  position: relative;
+  font-size: 28rpx;
+  color: #a3a3a3;
+}
+.picker:after {
+    content: " ";
+    display: inline-block;
+    top: 50%;
+    right: 0;
+    margin-left: 15rpx;
+    transform: translate(0, -50%) rotate(135deg);
+    height: 16rpx;
+    width: 16rpx;
+    border-width: 1px 1px 0 0;
+    border-color: #a3a3a3;
+    border-style: solid;
+    position: relative;
+}
+.dum-list-info .name{
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.dum-list-info .date{
+  font-size: 22rpx;
+  color: #b2b2b2;
+}
+.dum-list-remark .price{
+  color: #fc6973;
+  font-size: 44rpx;
+}
+
+.text-cancel{
+  text-align: center;
+  padding: 24rpx;
+}

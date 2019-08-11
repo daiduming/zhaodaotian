@@ -1,0 +1,201 @@
+/* pages/maker/index.wxss */
+page{
+  background: #fff;
+}
+.head{
+  position: relative;
+}
+.show-cell-group{
+  position: absolute;
+  top: calc(50% - 20rpx);
+  left: 0;
+  right: 0;
+  transform: translate(0, -50%);
+  overflow: hidden;
+}
+.show-cell{
+  float: left;
+  width: 50%;
+  text-align: center;
+  color: #fff;
+}
+.show-cell-value{
+  font-weight: bold;
+  font-size: 88rpx;
+}
+.show-cell-subtitle{
+  font-size: 24rpx;
+  margin-bottom: 10rpx;
+}
+.show-cell-url{
+  font-size: 18rpx;
+  font-weight: bold;
+  padding: 10rpx 15rpx;
+  background: #b1a3fa;
+  color: #e2ddff;
+  display: inline-block;
+  border-radius: 5rpx;
+  line-height: 20rpx;
+}
+.content{
+  padding: 0 24rpx;
+  position: relative;
+  background: #fefeff;
+}
+.coupon{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+.coupon-cell{
+  margin-top: -40rpx;
+  background: #fff;
+  border-radius: 5rpx;
+  padding: 30rpx;
+  width: calc(50% - 15rpx);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 11;
+  border: 1rpx solid #f9f8ff;
+  box-shadow: 0 0 5rpx #f9f8ff;
+}
+.coupon-cell .coupon-cell-left .name{
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.coupon-cell .coupon-cell-left .num{
+  font-size: 24rpx;
+  color: #b2b2b2;
+}
+.minute{
+  border: 1rpx solid #f9f8ff;
+  box-shadow: 0 0 5rpx #f9f8ff;
+}
+.minute-title{
+  font-size: 28rpx;
+  padding-right: 20rpx;
+  position: relative;
+  padding: 20rpx 30rpx;
+}
+.minute-title text{
+  font-size: 24rpx;
+  color: #b2b2b2;
+  margin-left: 10rpx;
+}
+.minute-title:after {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 30rpx;
+    transform: translate(0, -50%) rotate(45deg);
+    height: 16rpx;
+    width: 16rpx;
+    border-width: 1px 1px 0 0;
+    border-color: #C8C8CD;
+    border-style: solid;
+}
+.minute-block{
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  position: relative;
+}
+.minute-block:before {
+    content: " ";
+    position: absolute;
+    left: 30rpx;
+    right: 30rpx;
+    bottom: 0;
+    height: 1px;
+    border-bottom: 1px solid #ebebeb;
+    color: #D9D9D9;
+}
+.minute-block-cell{
+  flex: 1;
+  text-align: center;
+}
+.minute-block-cell .number{
+  font-size: 44rpx;
+}
+.minute-block-cell .subtitle{
+  font-size: 24rpx;
+  color: #b2b2b2;
+}
+.minute-list-group{
+  padding: 24rpx 30rpx 34rpx;
+}
+.minute-list{
+  display: flex;
+  padding: 5rpx 0;
+  font-size: 22rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+.minute-list-left{
+  width: 38%;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+.minute-list-inner{
+  width: 30%;
+  color: #b2b2b2;
+}
+.minute-list-right{
+  width: 30%;
+  text-align: right;
+}
+.minute-list-right .price{
+  font-size: 22rpx;
+  color: #927ff8;
+}
+.travel-add{
+  position: fixed;
+  left: 50%;
+  bottom: 50rpx;
+  transform: translate(-50%, 0);
+  text-align: center;
+  z-index: 999;
+}
+.travel-add .image{
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  background: -webkit-linear-gradient(#8873f6, #9886fa)!important; /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#8873f6, #9886fa)!important; /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#8873f6, #9886fa)!important; /* Firefox 3.6 - 15 */
+  background: linear-gradient(#8873f6, #9886fa)!important; /* 标准的语法 */
+  position: relative;
+}
+.travel-add .image::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 64rpx;
+  height: 10rpx;
+  background: #fff;
+  opacity: .4;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50rpx;
+}
+.travel-add .image::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 10rpx;
+  height: 64rpx;
+  background: #fff;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50rpx;
+}
+.travel-add text{
+  display: block;
+  margin-top: 8rpx;
+  font-size: 28rpx;
+  color: #8e7af7;
+}

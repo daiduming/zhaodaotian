@@ -1,0 +1,53 @@
+/* pages/village/article/detail.wxss */
+page{
+  background: #fff;
+}
+.banner{
+}
+.banner swiper{
+  height: 430rpx;
+}
+.banner swiper swiper-item image{
+  width: 100%;
+  height: 430rpx;
+}
+.content{
+  position: relative;
+  padding: 0 24rpx;
+  background: #fff;
+  margin-top: -50rpx;
+  border-top-left-radius: 25rpx;
+  border-top-right-radius: 25rpx;
+  z-index: 999;
+}
+.content .title{
+  font-size: 36rpx;
+   line-height: 60rpx;
+   padding: 20rpx 0 0;
+}
+.content .date{
+  font-size: 22rpx;
+  color: #b2b2b2;
+  margin: 20rpx 0;
+}
+.content .details{
+  position: relative;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.content .details:after {
+    content: "";
+    height: 2rpx;
+    width: 100%;
+    background: #efefef;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+.wxParse-p{
+  font-size: 28rpx;
+  line-height: 50rpx;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+}

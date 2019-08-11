@@ -1,0 +1,48 @@
+<!--pages/villager/index.wxml-->
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="model" wx:if="{{memberInfo.isvillager==0}}">
+    <view class="inner"  style="background-image:url({{imgUrl+'/plugin/app/static/images/duming/cmrz_01.png'}});">
+      <view class='inner-cont'>
+        <image mode='widthFix' class='bell' src="{{imgUrl+'/plugin/app/static/images/duming/cmrz_02.png'}}"></image>
+        <view class='hint-text'>
+          <text>您还未进行认证</text>
+          <text>认证后方可使用所有功能</text>
+        </view>
+        <navigator class='btn-sgs' url='/pages/villager/register/index'>前往认证</navigator>
+      </view>
+    </view>
+</view>
+<view class="model" wx:if="{{memberInfo.isvillager==1 && memberInfo.villagerstatus==0}}">
+    <view class="inner"  style="background-image:url({{imgUrl+'/plugin/app/static/images/duming/cmrz_01.png'}});">
+      <view class='inner-cont'>
+        <view class='hint-text'>
+          <text>审核中</text>
+        </view>
+      </view>
+    </view>
+</view>
+<view class="page member" wx:if="{{show}}">
+  <view class='head'>
+    <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/mbg_04.png'}}" style='width: 100%;'></image>
+  </view>
+  <view class='content'>
+    <view class='info-block'>
+      <view class='thumb'>
+        <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/l_01.png'}}"></image>
+      </view>
+      <view class='name'>{{memberInfo.realname}}<image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/l_02.png'}}"></image></view>
+      <view class='address'>{{memberInfo.villagename}}</view>
+      <view class='tab'>
+        <view class='tab-cell'>
+          <view class='text'>{{memberInfo.room_total}}</view>
+          <text class='tit'>房间数量(间)</text>
+        </view>
+        <navigator class='tab-cell' url="/pages/villager/commission/index">
+          <view class='text'>{{memberInfo.villagercommission_total}}</view>
+          <text class='tit'>收益总金额(元)</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
+

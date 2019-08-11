@@ -1,0 +1,19 @@
+<!--pages/village/article/index.wxml-->
+<loading wx:if="{{!show || loaded}}">加载中...</loading>
+<view class="page" wx:if="{{show}}">
+  
+    <view class='list-group' wx:for="{{list}}" wx:key="{{index}}">
+      <navigator class='list-item' url='/pages/village/article/detail?id={{item.id}}'>
+        <view class='title'>{{item.title}}</view>
+        <view class='time'>{{item.createtime}}</view>
+      </navigator>
+    </view>
+    <view class="center" wx:if="{{list.length==0&&empty}}">
+        <view class="empty">
+            <view class="text-cancel">暂时没有任何数据哦！</view>
+        </view>
+    </view>
+</view>
+<navigator class="commission-shouye" openType="switchTab" url="/pages/index/index">
+    <text class="icox icox-shouye"></text>
+</navigator>

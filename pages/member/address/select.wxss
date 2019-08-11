@@ -1,0 +1,132 @@
+.fui-list-angle {
+    margin-right: 0;
+}
+
+.fui-navbar {
+    height: 90rpx;
+}
+
+.fui-navbar .nav-item {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.fui-list-inner .title {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.fui-list-inner .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.realname {
+    display: inline-block;
+    max-width: 300rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-right: 35rpx;
+}
+
+.fui-list-inner .title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10rpx;
+}
+
+.fui-list-inner .title .realname {
+    display: inline-block;
+    max-width: 450rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-right: 28rpx;
+    font-size: 32rpx;
+}
+
+.fui-list-inner .title .mobile {
+    display: inline-block;
+    font-size: 24rpx;
+    color: #999;
+    padding-right: 28rpx;
+    line-height: 30rpx;
+}
+
+.fui-list-group{
+  margin: 20rpx 30rpx 0;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.edit{
+  width: 34rpx;
+}
+
+.travel-add{
+  position: fixed;
+  left: 50%;
+  bottom: 50rpx;
+  transform: translate(-50%, 0);
+  text-align: center;
+  z-index: 999;
+}
+.travel-add .image{
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  background: -webkit-linear-gradient(#5c9bfa, #1761d0)!important; /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#5c9bfa, #1761d0)!important; /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#5c9bfa, #1761d0)!important; /* Firefox 3.6 - 15 */
+  background: linear-gradient(#5c9bfa, #1761d0)!important; /* 标准的语法 */
+  position: relative;
+}
+.travel-add .image::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 64rpx;
+  height: 10rpx;
+  background: #fff;
+  opacity: .4;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50rpx;
+}
+.travel-add .image::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 10rpx;
+  height: 64rpx;
+  background: #fff;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50rpx;
+}
+.travel-add text{
+  display: block;
+  margin-top: 8rpx;
+  font-size: 28rpx;
+  color: #2b71dc;
+}

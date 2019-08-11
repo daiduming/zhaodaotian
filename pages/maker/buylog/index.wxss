@@ -1,0 +1,120 @@
+/* pages/maker/buylog/index.wxss */
+page{
+  background: #fff;
+}
+.head{
+  position: relative;
+}
+.show-cell-group{
+  position: absolute;
+  top: calc(50% - 20rpx);
+  left: 0;
+  right: 0;
+  transform: translate(0, -50%);
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.show-cell{
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+.show-cell-value{
+  font-weight: bold;
+  font-size: 88rpx;
+}
+.show-cell-subtitle{
+  font-size: 24rpx;
+  margin-bottom: 10rpx;
+}
+.content{
+  padding: 0 24rpx;
+  position: relative;
+  background: #fefeff;
+}
+.minute{
+  position: absolute;
+  top: -112rpx;
+  left: 24rpx;
+  z-index: 20;
+  width: calc(100% - 48rpx);
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1rpx solid #f9f8ff;
+  box-shadow: 0 0 5rpx #f9f8ff;
+  min-height: 400rpx;
+}
+.coupon{
+  padding: 30rpx;
+  display:flex;
+  justify-content: space-between;
+}
+.left-title{
+  flex: 1;
+  font-size: 15px;
+}
+.right-time{
+  flex: 1;
+}
+.currenttime{
+  font-size: 15px;
+  color: #a3a3a3;
+}
+.history-list{
+  padding: 0 30rpx;
+}
+.history-item{
+  display:flex;
+  padding: 32rpx 0;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ebebeb;
+}
+.history-item:last-child{
+  border-bottom: none;
+}
+.item-object{
+  flex: 5;
+  font-size: 14px;
+}
+.date-num{
+  flex: 2;
+  font-size: 44rpx;
+  text-align: right;
+}
+.time-numb{
+  color: #9380f9;
+  padding: 0 10rpx 0 0;
+}
+.unit{
+  font-size: 24rpx;
+}
+.item-name{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+}
+.item-time{
+  color: #b2b2b2;
+  font-size: 22rpx;
+}
+.currenttime::after{
+  content: " ";
+  display: inline-block;
+  transform: rotate(135deg);
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 1px 1px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  position: relative;
+  top: -1px;
+  margin-left: .3em;
+}
+.text-cancel{
+  text-align: center;
+  padding: 24rpx;
+  font-size: 28rpx;
+}

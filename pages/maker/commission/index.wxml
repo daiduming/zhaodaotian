@@ -1,0 +1,67 @@
+<!--pages/maker/commission/index.wxml-->
+<loading wx:if="{{!show || loaded}}">加载中...</loading>
+<view class="page member" wx:if="{{show}}">
+  <view class='head'>
+    <image mode='widthFix' src="{{imgUrl+'/plugin/app/static/images/duming/m_bg_01.png'}}" style='width: 100%;'></image>
+    <view class="show-cell-group">
+      <view class="show-cell">
+        <view class="show-cell-value">{{commission_total}}</view>
+        <view class="show-cell-subtitle">当前持有收益（元）</view>
+      </view>
+    </view>
+  </view>
+  <view class='content'>
+    <view class="minute">
+        <view class="coupon">
+            <view class="detail-item left-detailitem  {{isChecked?'detail-active':''}}" bindtap="uncometypechange">收益明细</view>
+            <view class="detail-item right-detailitem {{!isChecked?'detail-active':''}}" bindtap="incometypechange">村庄收益</view>
+        </view>
+        <!-- <view class="history-list">
+          <view class="selecttime">
+            <picker mode="date" fields="month" value="{{date}}" bindchange="bindDateChange">
+              <view class="picker currenttime">
+                {{date}}
+              </view>
+            </picker>
+          </view>
+        </view> -->
+        <view class="history-list" wx:if="{{isChecked}}">
+                <view class="selecttime">
+                  <picker mode="date" fields="month" value="{{date}}" bindchange="bindDateChange">
+                    <view class="picker currenttime">
+                      {{date}}
+                    </view>
+                  </picker>
+                </view>
+                <view class="history-item" wx:for="{{list}}" wx:key="{{index}}">
+                    <view class="item-object">
+                        <view class="item-name">{{item.villagename}}</view>
+                        <view class="item-time">{{item.paytime}}</view>
+                    </view>
+                    <view class="date-num">
+                        <text class="d-inlineblock time-numb"> +{{item.realmoney}}</text>
+                    </view>
+                </view>
+        </view>
+        <view class="history-list" wx:if="{{!isChecked}}">
+            <view class="history-item" wx:for="{{list}}" wx:key="{{index}}">
+                <view class="fui-cell-icon thumb">
+                    <image mode='aspectFit' class='icon left-icon' src="{{item.thumb}}"></image>
+                </view>
+                <view class="item-object" style="margin-left: 20rpx;">
+                    <view class="item-name">{{item.villagename}}</view>
+                    <view class="item-time"><text>{{item.province}}</text><text>{{item.city}}</text><text>{{item.area}}</text></view>
+                </view>
+                <view class="date-num">
+                    <text class="d-inlineblock time-numb" style="font-size:44rpx"> +{{item.realmoney}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="history-list" wx:if="{{list.length==0&&empty}}">
+          <view class="empty">
+            <view class="text-cancel">暂无任何收益</view>
+          </view>
+        </view>
+    </view>
+  </view>
+</view>

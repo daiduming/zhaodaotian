@@ -1,0 +1,72 @@
+<!--pages/goods/new/index.wxml-->
+<loading wx:if="{{!show || loaded}}">加载中...</loading>
+<view class="page member" wx:if="{{show}}">
+  <view class='activity-search'>
+    <navigator class="activity-search-cell" url="/pages/goods/index/index?fromsearch=1" hoverClass="none">
+      <text class='text'>输入关键字搜索</text>
+      <text class="icox icox-search" style="color:{{diyitem.style.iconcolor}}"></text>
+    </navigator>
+  </view>
+  <view class="activity-banner" wx:if="{{imgUrls.length>0}}">
+    <swiper autoplay="{{imgUrls.length>1 ? 1 : 0}}" interval="5000" duration="1000" circular="true" bindchange="swiperCurrent">
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item.images}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 自定义指示点dot -->
+    <view class='dots' wx:if="{{imgUrls.length>1 ? 1 : 0}}">
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <view class='dot {{index == swiperCurrent ? "active" : ""}}'></view>
+      </block>
+    </view>
+  </view>
+  <view class='activity-group' wx:if="{{recommendList.length>0}}">
+    <view class='activity-group-title'>推荐产品</view>
+    <view class='activity-list-group'>
+      <view class='activity-list-item' wx:for="{{recommendList}}" wx:key="{{index}}">
+        <navigator class='image' style='background-image: url({{item.thumb}});' url='/pages/goods/detail/index?id={{item.id}}'></navigator>
+        <view class='detail'>
+          <navigator class='name' url='/pages/goods/detail/index?id={{item.id}}'>{{item.title}}</navigator>
+          <view class='price'>
+            <view class='text'>￥<text>{{item.minprice}}</text></view>
+            <view style="display: flex;align-items: center;" wx:if="{{item.istime}}">
+              <text class='buy'>Time</text>
+              <text class="" style="color:#999999;font-size:24rpx;">￥49.90</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='activity-group' wx:if="{{recommendList.length>0}}">
+    <view class='activity-group-title'>产品分类</view>
+    <scroll-view class="fui-tab-scroll" scrollX="true" style="overflow-x:scroll">
+        <view wx:for="{{categoryList}}" wx:key="{{index}}" bindtap="selected" class="item {{cateCurrent==item.id?'active':''}}" data-index="{{item.id}}">{{item.name}}</view>
+    </scroll-view>
+    <view class='activity-list-group'>
+      <view class='activity-list-item' wx:for="{{list}}" wx:key="{{index}}">
+        <navigator class='image' style='background-image: url({{item.thumb}});' url='/pages/goods/detail/index?id={{item.id}}'></navigator>
+        <view class='detail'>
+          <navigator class='name' url='/pages/goods/detail/index?id={{item.id}}'>{{item.title}}</navigator>
+          <view class='price'>
+            <view class='text'>￥<text>{{item.minprice}}</text></view>
+            <view style="display: flex;align-items: center;" wx:if="{{item.istime}}">
+              <text class='buy'>Time</text>
+              <text class="" style="color:#999999;font-size:24rpx;">￥49.90</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="center" wx:if="{{list.length==0&&empty}}">
+        <view class="empty">
+            <view class="text-cancel">暂时没有任何数据哦！</view>
+        </view>
+    </view>
+  </view>
+</view>
+<navigator class="commission-shouye" openType="switchTab" url="/pages/index/index">
+    <text class="icox icox-shouye"></text>
+</navigator>

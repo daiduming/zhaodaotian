@@ -1,0 +1,40 @@
+<!--pages/village/detail/index.wxml-->
+<import src="/utils/wxParse/wxParse.wxml"></import>
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page" wx:if="{{detail && show}}">
+  <view class="banner" wx:if="{{detail.images.length>0}}">
+    <swiper autoplay="{{detail.images.length>1 ? 1 : 0}}" indicator-dots="{{detail.images.length>1 ? 1 : 0}}" interval="5000" duration="1000" circular="true">
+      <block wx:for="{{detail.images}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='content'>
+    <view class='title'>{{detail.villagename}}</view>
+    <view class='address'><text>{{detail.province}}</text><text>{{detail.city}}</text><text>{{detail.area}}</text></view>
+    <view class='xx-cell-group'>
+      <navigator class='xx-cell wz' url='/pages/village/article/index?id={{detail.id}}'>
+        <text class='subtitle'>村庄文章</text>
+        <view class='xx-cell-detail'>
+          <text class='arrow wz'></text>
+          <image mode='widthFix' src='{{imgUrl+"/plugin/app/static/images/duming/v_01.png"}}'></image>
+        </view>
+      </navigator>
+      <navigator class='xx-cell zs' url="/pages/homestay/index?id={{detail.id}}">
+        <text class='subtitle'>村庄住宿</text>
+        <view class='xx-cell-detail'>
+          <text class='arrow zs'></text>
+          <image mode='widthFix' src='{{imgUrl+"/plugin/app/static/images/duming/v_02.png"}}'></image>
+        </view>
+      </navigator>
+    </view>
+    <view class='details'>
+      <template is="wxParse" data="{{wxParseData:wxParseData.nodes}}"></template>
+    </view>
+    <navigator wx:if="{{isapply}}" class='btn-submit' url='/pages/activity/create/index?id={{detail.id}}'>立即报名</navigator>
+  </view>
+</view>
+
+

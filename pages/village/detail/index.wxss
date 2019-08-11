@@ -1,0 +1,123 @@
+/* pages/village/detail/index.wxss */
+page{
+  background: #fff;
+}
+.banner{
+}
+.banner swiper{
+  height: 430rpx;
+}
+.banner swiper swiper-item image{
+  width: 100%;
+  height: 430rpx;
+}
+.content{
+  position: relative;
+  padding: 0 24rpx;
+  background: #fff;
+  margin-top: -50rpx;
+  border-top-left-radius: 25rpx;
+  border-top-right-radius: 25rpx;
+  z-index: 999;
+}
+.content .title{
+  font-size: 32rpx;
+   line-height: 60rpx;
+   padding: 20rpx 0 0;
+}
+.content .address{
+  font-size: 22rpx;
+  color: #b2b2b2;
+}
+.content .address text{
+  margin-right: 10rpx;
+}
+.xx-cell-group{
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 0;
+}
+.xx-cell{
+  padding: 30rpx;
+  width: calc(50% - 30rpx);
+  border-radius: 20rpx;
+  box-sizing: border-box;
+}
+.xx-cell.wz{
+  background: -webkit-linear-gradient(90deg, #7ea4e5, #a196f7); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #7ea4e5, #a196f7); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #7ea4e5, #a196f7); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #7ea4e5, #a196f7); /* 标准的语法（必须放在最后） */
+}
+.xx-cell.zs{
+  background: -webkit-linear-gradient(180deg, #ffca33, #fe9728); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(180deg, #ffca33, #fe9728); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(180deg, #ffca33, #fe9728); /* Firefox 3.6 - 15 */
+    background: linear-gradient(180deg, #ffca33, #fe9728); /* 标准的语法（必须放在最后） */
+}
+.xx-cell .subtitle{
+  display: block;
+  color: #fff;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.xx-cell-detail{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.xx-cell-detail .arrow{
+  position: relative;
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+}
+.xx-cell-detail .arrow.wz{
+  background: -webkit-linear-gradient(90deg, #adc4ef, #9ab4ec); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #adc4ef, #9ab4ec); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #adc4ef, #9ab4ec); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #adc4ef, #9ab4ec); /* 标准的语法（必须放在最后） */ 
+}
+.xx-cell-detail .arrow.zs{
+  background: -webkit-linear-gradient(135deg, #ffca7e, #feb24a); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(135deg, #ffca7e, #feb24a); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(135deg, #ffca7e, #feb24a); /* Firefox 3.6 - 15 */
+    background: linear-gradient(135deg, #ffca7e, #feb24a); /* 标准的语法（必须放在最后） */
+}
+.xx-cell-detail .arrow:after {
+    content: " ";
+    display: inline-block;
+    height: 10rpx;
+    width: 10rpx;
+    border-width: 1px 1px 0 0;
+    border-color: #fff;
+    border-style: solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.xx-cell-detail image{
+  width: 48rpx;
+}
+.content .details{
+  position: relative;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.content .details:after {
+    content: "";
+    height: 2rpx;
+    width: 100%;
+    background: #efefef;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+.wxParse-p{
+  font-size: 28rpx;
+  line-height: 50rpx;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+}

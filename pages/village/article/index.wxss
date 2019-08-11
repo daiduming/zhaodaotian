@@ -1,0 +1,65 @@
+/* pages/village/article/index.wxss */
+page{
+  background: #fff;
+}
+
+.list-group{
+  background: #fff;
+  border-radius: 5rpx;
+  box-shadow: 0 0 15rpx #f0f0f0;
+  margin: 30rpx 24rpx 0;
+}
+.list-item{
+  padding: 20rpx 30rpx;
+}
+.list-item .title{
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+}
+.list-item .time{
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+.empty {
+    padding:100rpx 150rpx 200rpx;
+    font-size: 28rpx;
+}
+
+.commission-shouye {
+    position: fixed;
+    right: 20rpx;
+    z-index: 999;
+    font-size: 22rpx;
+    color: #fff;
+    width: 84rpx;
+    height: 84rpx;
+    transition: all .7s;
+    background: rgba(0,0,0,0.5);
+    bottom: 280rpx;
+}
+
+.commission-shouye {
+    width: 90rpx;
+    height: 90rpx;
+    background: #ff5555;
+    position: fixed;
+    right: 20rpx;
+    bottom: 80rpx!important;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0;
+    line-height: 90rpx;
+}
+
+.commission-shouye {
+    bottom: 235rpx;
+}
+
+.commission-shouye .icox {
+    font-size: 50rpx;
+    color: #fff;
+}
